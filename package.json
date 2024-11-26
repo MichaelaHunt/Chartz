@@ -1,0 +1,23 @@
+{
+  "name": "proj-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && vite build",
+    "start": "vite",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "react": "^18.3.1",
+    "sequelize": "^6.37.5",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.11"
+  }
+}
