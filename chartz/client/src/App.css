@@ -1,11 +1,27 @@
 /* Everything in here will be applied globally - every page and component gets these */
 #root {
+  --nav-grey: #232323;
+}
 
+@font-face {
+  font-family: "Sansation";
+  src: url("./assets/fonts/Sansation_Regular.ttf");
+}
+
+@font-face {
+  font-family: "Sansation-Italic";
+  src: url("./assets/fonts/Sansation_Italic.ttf");
+}
+
+@font-face {
+  font-family: "RubikGlitch";
+  src: url("./assets/fonts/RubikGlitch-Regular.ttf") format("truetype");
 }
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 h1, h2, h3, h4, h5, h6, p {
