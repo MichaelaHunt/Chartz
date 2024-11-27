@@ -1,6 +1,11 @@
 /* Everything in this file applies to the pages */
 .body {
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 .top3container {
@@ -12,7 +17,15 @@
 }
 
 .loginContainer {
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  max-width: 400px;
+  margin: auto;
+  width: 100%;
+  text-align: center;
 }
 
 .loginTitle {
