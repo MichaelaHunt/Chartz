@@ -1,4 +1,4 @@
-import { sequelize } from "sequelize";
+import sequelize from "../config/connection";
 import { UserFactory } from "./user";
 import { SavedSongFactory } from "./savedSong";
 
