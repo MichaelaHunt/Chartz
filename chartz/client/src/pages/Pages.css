@@ -24,14 +24,17 @@
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  background-color: #1e1e1e;
-  border-radius: 10px;
+  background-color: #232323;
+  border-radius: 16px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  max-width: 400px;
+  max-width: 528px;
   width: 100%;
+  min-height: 609px;
+  height: 100%;
   text-align: center;
   color: white;
   font-size: 20px;
+  justify-content: space-between;
 }
 
 .loginTitle {
@@ -50,10 +53,10 @@ button {
   width: 100%;
   padding: 0.75rem;
   margin: 0.5rem 0;
-  background-color: white; /* White background for buttons */
-  color: #1e1e1e; /* Dark text for buttons */
+  background-color: white;
+  color: #1e1e1e;
   border: none;
-  border-radius: 5px;
+  border-radius: 16px;
   font-size: 24px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
