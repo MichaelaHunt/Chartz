@@ -1,5 +1,6 @@
-import { type JwtPayload, jwtDecode } from 'jwt-decode';
+import jwtDecode, { JwtPayload } from 'jwt-decode';
 import type { UserLogin } from '../interfaces/UserLogin';
+
 
 class AuthorizeUser {
     getProfile() {
