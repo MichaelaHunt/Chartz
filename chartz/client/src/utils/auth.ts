@@ -21,7 +21,7 @@ class AuthorizeUser {
             const decodedToken = jwtDecode<JwtPayload>(token);
 
             //check to see if the token is expired, if so return true.
-            if (decodedToken?.exp && decodedToken?.exp < Date.now() / 1000) {
+            if (decodedToken?.exp && decodedToken?.exp < Date.now() / 1) {
                 return true;
             }
         } catch (error) {
@@ -29,3 +29,21 @@ class AuthorizeUser {
             return false;
         }
     }
+//create a function to get the token from local storage.
+    getToken(): string | null {
+        const loggedInUser = localStorage.getItem('id_token') || '';
+        return loggedInUser;
+    }
+    //create a function to log in the user.
+    loginUser(userToken: string) {
+        localStorage.setItem('id_token', userToken);
+        window.location.assign('/');
+    }
+    //create a function to log out the user.
+    logoutUser() {
+        localStorage.removeItem('id_token');
+        window.location.assign('/');
+    }
+}
+
+export default new AuthorizeUser();
