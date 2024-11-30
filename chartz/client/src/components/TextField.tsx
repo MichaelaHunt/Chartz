@@ -2,12 +2,10 @@ import "./Components.css";
 
 function TextField() {
     return(
-        <>
+        <div className="textField">
             <h3>Email Address</h3>
-            <div>
-                <h3 className="ghostText">email address</h3>
-            </div>
-        </>
+            <input className="loginInput"></input>
+        </div>
     );
 }
 
