@@ -5,17 +5,21 @@ import './Pages.css';
 function SignUp() {
     return (
         <>
-            <div className="body">
+            <div className="page">
                 <Navbar></Navbar>
-                <div className="loginContainer">
-                    <h1 className="loginTitle">Sign up for Chartz</h1>
-                    <TextField></TextField>
-                    <p className="error">Invalid email. Try again.</p> {/*visibility: hidden*/}
-                    <TextField></TextField>
-                    <p className="error">Password does not have [whatever]</p> {/*visibility: hidden*/}
-                    <TextField></TextField>
-                    <p className="error">Passwords do not match.</p> {/*visibility: hidden*/}
-                    <button>Create Account</button>
+                <div className="body">
+                    <div className="loginContainer">
+                        <div className="loginItem">
+                            <h1 className="loginTitle">Sign up for Chartz</h1>
+                            <TextField></TextField>
+                            <p className="error">Invalid email. Try again.</p>
+                            <TextField></TextField>
+                            <p className="error">Password does not have [whatever]</p> 
+                            <TextField></TextField>
+                            <p className="error">Passwords do not match.</p> 
+                            <button>Create Account</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </>
