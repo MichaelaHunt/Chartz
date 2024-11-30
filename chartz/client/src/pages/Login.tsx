@@ -12,10 +12,15 @@ function Login() {
                         <div className="loginItem">
                             <h1 className="loginTitle">Log in to Chartz</h1>
                             <TextField></TextField>
+                            <div className="space"></div>
                             <TextField></TextField>
-                            <p className="error">Incorrect login. Please try again.</p> {/*visibility: hidden*/}
+                            <p className="error">Incorrect login. Please try again.</p>
                             <button>Login</button>
-                            <p>or</p>
+                            <div className="row">
+                                <div className='horizontalLine'></div>
+                                <p>or</p>
+                                <div className='horizontalLine'></div>
+                            </div>
                             <button>Sign Up</button>
                         </div>
                     </div>

@@ -70,10 +70,6 @@ li {
   list-style-type: none;
 }
 
-.ghostText {
-
-}
-
 .top3item > div{
   background-color: var(--nav-grey);
   width: 300px;
@@ -148,4 +144,31 @@ li {
 
 .top3item > div, .top10item > div:hover {
   cursor: pointer;
+}
+
+.textField > h3 {
+  text-align: left;
+  padding-bottom: 8px;
+  font-size: 20px;
+}
+
+.loginInput {
+  font-family: 'Sansation-Light';
+  font-size: 20px;
+  height: 40px;
+  width: 448px;
+  border-radius: 12px;
+  background-color: #1A1A1A;
+  border: solid 1px white;
+  color: white;
+  padding-left: 8px;
+  width: 400px;
+}
+
+.loginInput::placeholder {
+  padding-left: 8px;
+}
+
+.loginInput:focus {
+  outline: none;
 }
