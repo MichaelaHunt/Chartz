@@ -12,8 +12,9 @@
 
 .searchBar > button {
   background-color: #1A1A1A;
+  padding: 0;
+  margin: 0;
   border: none;
-  /* margin-right: 16px; */
   color: white;
   height: 40px;
   width: 40px;
@@ -22,6 +23,8 @@
 
 .searchBar > button > i {
   font-size: 18px;
+  width: 25px;
+  height: 25px;
 }
 
 .searchBar > button:hover {
