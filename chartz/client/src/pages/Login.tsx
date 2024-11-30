@@ -6,7 +6,7 @@ function Login() {
     return (
         <>
             <div className="body">
-                <Navbar></Navbar>
+                {/* <Navbar></Navbar> */}
                 <div className="loginContainer">
                     <h1 className="loginTitle">Log in to Chartz</h1>
                     <TextField></TextField>
