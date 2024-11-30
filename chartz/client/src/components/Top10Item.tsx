@@ -7,8 +7,10 @@ function Top10Item() {
                 <h1>1</h1>
                 <div>
                     <img className="top10img"></img>
-                    <h6 className="top10text">Song Title</h6>
-                    <h6 className="top10text">Song Artist</h6>
+                    <div>
+                        <h6 className="top10text">Song Title</h6>
+                        <h6 className="top10text">Song Artist</h6>
+                    </div>
                 </div>
             </div>
         </>
