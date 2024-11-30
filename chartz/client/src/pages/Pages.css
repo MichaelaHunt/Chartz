@@ -1,21 +1,51 @@
 /* Everything in this file applies to the pages */
+.page {
+  background-color: grey;
+}
+
 .body {
+  margin: 0;
+  margin: auto;
+  text-align: center;
+  width: 1440px;
+  color: white;
+  padding-top: 48px;
+  padding-bottom: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  background-color: #333333;
-  font-family: 'Sansation', sans-serif;
+}
+
+.sectionTitle {
+  margin: 96px 0 64px 48px;
+  font-size: 48px;
+  text-align: left;
+}
+
+.first {
+  margin: 0 0 64px 48px;
 }
 
 .top3container {
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 64px;
 }
 
 .top10container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+.top10container > *:nth-child(n+3){
+  margin-top: 24px;
+}
+
+.top10container > *:nth-child(even) {
+  margin-left: 56px;
 }
 
 .loginContainer {

@@ -1,30 +1,102 @@
 /* This file's contents only effects the components */
 .searchBar {
-
+  background-color: #1A1A1A;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  width: 480px;
+  align-items: center;
+  border-radius: 16px;
 }
 
-.ul {
-
+.searchBar > button {
+  background-color: #1A1A1A;
+  border: none;
+  /* margin-right: 16px; */
+  color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 16px;
 }
 
-.li {
-  
+.searchBar > button > i {
+  font-size: 18px;
+}
+
+.searchBar > button:hover {
+  cursor: pointer;
+}
+
+.searchBar > input {
+  font-family: 'Sansation-Light';
+  font-size: 20px;
+  height: 40px;
+  width: 448px;
+  border-radius: 0 16px 16px 0;
+  background-color: #1A1A1A;
+  border: none;
+  color: white;
+}
+
+.searchBar > input:focus {
+  border: none;
+  outline: none;
+}
+
+.navContainer {
+  background-color: var(--nav-grey);
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin: 0 32px;
+  font-family: "Sansation";
+}
+
+ul li:first-child {
+  font-family: 'RubikGlitch';
+  font-size: 60px;
+}
+
+li {
+  list-style-type: none;
 }
 
 .ghostText {
 
 }
 
-.top3item {
+.top3item > div{
+  background-color: var(--nav-grey);
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  color: white;
+}
 
+.top3item > h2 {
+  margin-top: 24px;
+  font-size: 48px;
+  font-family: 'Sansation';
+  text-align: center;
 }
 
 .top3artist {
-
+  font-size: 16px;
 }
 
 .top3title {
-  
+  margin: 16px 0 8px;
+  font-size: 20px;
 }
 
 .top3img {
@@ -33,14 +105,44 @@
 }
 
 .top10item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: start;
+}
 
+.top10item > h1 {
+  margin-right: 16px;
+  text-align: right;
+  font-family: 'Sansation';
+}
+
+.top10item > div {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--nav-grey);
+  width: 533px;
+  align-items: center;
+  height: 90px;
+  border-radius: 16px;
+  padding: 0 16px;
+}
+
+.top10item > div > div > *:nth-child(even) {
+  margin-top: 8px;
 }
 
 .top10text {
-
+  color: white;
+  margin-left: 16px;
+  font-size: 20px;
 }
 
 .top10img {
   width: 60px;
   height: 60px;
+}
+
+.top3item > div, .top10item > div:hover {
+  cursor: pointer;
 }

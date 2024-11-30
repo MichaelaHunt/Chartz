@@ -4,8 +4,8 @@ function Searchbar() {
     return (
         <>
             <div className="searchBar">
-                <i className="fa-solid fa-magnifying-glass"></i>
-                <h4 className="ghostText">Search for lyrics</h4>
+                <button><i className="fa-solid fa-magnifying-glass"></i></button>
+                <input placeholder="Search for lyrics"></input>
             </div>
         </>
     );

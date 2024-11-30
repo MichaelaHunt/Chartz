@@ -9,6 +9,11 @@
 }
 
 @font-face {
+  font-family: "Sansation-Light";
+  src: url("./assets/fonts/Sansation_Light.ttf");
+}
+
+@font-face {
   font-family: "Sansation-Italic";
   src: url("./assets/fonts/Sansation_Italic.ttf");
 }
@@ -25,6 +30,5 @@
 }
 
 h1, h2, h3, h4, h5, h6, p {
-  /* font family here eventually */
-  font-family: 'Sansation';
+  font-family: "Sansation-Light";
 }
