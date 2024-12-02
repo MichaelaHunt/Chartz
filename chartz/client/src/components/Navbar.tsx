@@ -1,17 +1,53 @@
 import Searchbar from "./Searchbar";
 import "./Components.css";
+import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import auth from "../utils/auth";
 
 function Navbar() {
+    const currentPage = useLocation().pathname
+    // State to track if the user is logged in
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const checkLogin = async () => {
+        if (auth.loggedIn()) {
+            setIsLoggedIn(true);
+        }
+    };
+
+    useEffect(() => {
+        checkLogin();
+    }, [isLoggedIn]);
+
+  
+
     return (
-        <>
-            <div className="navContainer">
-                <ul>
-                    <li>CHARTZ</li>
-                    <li><Searchbar></Searchbar></li>
-                    <li>{/*if they're logged in, render "Saved Songs"; if else render "Log In" */}Temp</li>
-                </ul>
-            </div>
-        </>
+        <div className="navContainer">
+            <ul>
+                <li>CHARTZ</li>
+                <li><Searchbar /></li>
+                {isLoggedIn ? (
+                    <>
+                        <li className="saved-lyrics-nav">
+                            <Link to="/Lyrics">Saved Lyrics</Link>
+                        </li>
+                        <li className="logout-button-nav">
+                            <button onClick={() => {
+                                auth.logoutUser();
+                            }}>Logout</button>
+                        </li>
+                    </>
+                ) : (
+                    <li className="login-signup-nav">
+                        <Link 
+                        to="/login"
+                        className={currentPage === '/login' ? 'nav-link-active' : 'nav-link'}>
+                            Log in / Sign up
+                        </Link>
+                    </li>
+                )}
+            </ul>
+        </div>
     );
 }
 
