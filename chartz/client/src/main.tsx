@@ -27,11 +27,11 @@ const router = createBrowserRouter([
         element: <Login/>
       },
       {
-        path: 'lyrics',
+        path: '/lyrics',
         element: <LyricsView/>
       },
       {
-        path: 'saved',
+        path: '/saved',
         element: <SavedView/>
       }
     ]
