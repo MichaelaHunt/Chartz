@@ -21,7 +21,9 @@ function Login() {
                                 <p>or</p>
                                 <div className='horizontalLine'></div>
                             </div>
-                            <button>Sign Up</button>
+                            <button onClick={() =>
+                                window.location.href = '/signup'}>Sign Up
+                            </button>
                         </div>
                     </div>
                 </div>
