@@ -17,7 +17,7 @@
 
 .loginContainer {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 }
@@ -46,11 +46,11 @@
   justify-content: center;
 }
 
-.top10container > *:nth-child(n+3){
+.top10container>*:nth-child(n+3) {
   margin-top: 24px;
 }
 
-.top10container > *:nth-child(even) {
+.top10container>*:nth-child(even) {
   margin-left: 56px;
 }
 
@@ -89,7 +89,7 @@
   height: 24px;
 }
 
-.loginItem > div > p {
+.loginItem>div>p {
   font-size: 20px;
   margin: 16px 8px;
 }
@@ -119,23 +119,47 @@ button {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.savedContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.savedItem {
+  background-color: #232323;
+  width: 770px;
+  height: 650px;
+  border-radius: 16px;
+  padding: 48px 36px 0;
+}
+
+.scrollContainer {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  height: 450px;
+}
+
+.scrollContainer > * {
+  margin-bottom: 16px;
+}
+
+.savedItem > h1 {
+  margin-bottom: 36px;
+  font-size: 48px;
+}
+
 .lyricsImg {
   width: 300px;
   height: 300px;
 }
 
-.lyricsText {
+.lyricsText {}
 
-}
+.lyricsText>h1 {}
 
-.lyricsText > h1 {
+.lyricsText>h2 {}
 
-}
-
-.lyricsText > h2 {
-  
-}
-
-.lyricsText > h4 {
-  
-}
+.lyricsText>h4 {}
