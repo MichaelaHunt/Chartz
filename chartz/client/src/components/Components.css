@@ -172,3 +172,23 @@ li {
 .loginInput:focus {
   outline: none;
 }
+
+.savedSongItem {
+  display: flex;
+  flex-direction: row;
+  border: solid 1px white;
+  border-radius: 16px;
+  align-items: center;
+  padding: 15px 0 15px;
+  padding-left: 16px;
+}
+
+.savedSongItem > img {
+  width: 55px;
+  height: 55px;
+  margin-right: 16px;
+}
+
+.spacer {
+  margin: 0 8px;
+}
