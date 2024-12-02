@@ -19,7 +19,7 @@ function Navbar() {
         checkLogin();
     }, [isLoggedIn]);
 
-  
+
 
     return (
         <div className="navContainer">
@@ -28,20 +28,21 @@ function Navbar() {
                 <li><Searchbar /></li>
                 {isLoggedIn ? (
                     <>
-                        <li className="saved-lyrics-nav">
+                        <li className="nav-bar-links">
                             <Link to="/Lyrics">Saved Lyrics</Link>
                         </li>
-                        <li className="logout-button-nav">
+                        <li className="nav-bar-links">
                             <button onClick={() => {
                                 auth.logoutUser();
-                            }}>Logout</button>
+                            }}>
+                                Logout</button>
                         </li>
                     </>
                 ) : (
-                    <li className="login-signup-nav">
-                        <Link 
-                        to="/login"
-                        className={currentPage === '/login' ? 'nav-link-active' : 'nav-link'}>
+                    <li className="nav-bar-links">
+                        <Link
+                            to="/login"
+                            className={currentPage === '/login' ? 'nav-link-active' : 'nav-link'}>
                             Log in / Sign up
                         </Link>
                     </li>
