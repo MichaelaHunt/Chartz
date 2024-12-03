@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import TextField from "../components/TextField";
 import './Pages.css';
@@ -21,7 +22,11 @@ function Login() {
                                 <p>or</p>
                                 <div className='horizontalLine'></div>
                             </div>
-                            <button>Sign Up</button>
+                            <Link
+                                to="/signup"
+                                className="signupLink">
+                                Sign Up
+                            </Link>
                         </div>
                     </div>
                 </div>
