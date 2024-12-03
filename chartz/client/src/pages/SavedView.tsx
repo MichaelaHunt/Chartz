@@ -12,13 +12,13 @@ function SavedView() {
                         <div className="savedItem">
                             <h1>Saved Songs</h1>
                             <div className="scrollContainer">
-                                <SavedSong></SavedSong>
-                                <SavedSong></SavedSong>
-                                <SavedSong></SavedSong>
-                                <SavedSong></SavedSong>
-                                <SavedSong></SavedSong>
-                                <SavedSong></SavedSong>
-                                <SavedSong></SavedSong>
+                                <SavedSong img="img1.jpg" title="Title" artist="Artist"></SavedSong>
+                                <SavedSong img="img1.jpg" title="Title" artist="Artist"></SavedSong>
+                                <SavedSong img="img1.jpg" title="Title" artist="Artist"></SavedSong>
+                                <SavedSong img="img1.jpg" title="Title" artist="Artist"></SavedSong>
+                                <SavedSong img="img1.jpg" title="Title" artist="Artist"></SavedSong>
+                                <SavedSong img="img1.jpg" title="Title" artist="Artist"></SavedSong>
+                                <SavedSong img="img1.jpg" title="Title" artist="Artist"></SavedSong>
                             </div>
                         </div>
 
