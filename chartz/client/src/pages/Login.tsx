@@ -2,8 +2,37 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import TextField from "../components/TextField";
 import './Pages.css';
+import Auth from '../utils/auth';
+import { useState, type FormEvent, type ChangeEvent } from 'react';
+import type { UserLogin } from '../interfaces/UserLogin';
+import { login } from '../api/AuthAPI';
 
 function Login() {
+const [userLogin, setUserLogin] = useState<UserLogin>
+({
+    id: null,
+    username: '',
+    password: '',
+});
+
+const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = event.target;
+    setUserLogin({
+        ...userLogin,
+        [name]: value,
+    });
+};
+
+const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+    try {
+        const data = await login(userLogin);
+        Auth.loginUser(data.token);
+    } catch (error) {
+        console.error('Failed to log in', error);
+    }
+};
+
     return (
         <>
             <div className="page">
