@@ -19,6 +19,6 @@ const retrieveSongs = async (query: string): Promise<GeniusSong[]> => {
     console.log('Error from data retrieval:', err);
     return [];
   }
-}
+};
 
 export { retrieveSongs };
