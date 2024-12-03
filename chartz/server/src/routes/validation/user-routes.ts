@@ -5,14 +5,14 @@ import { User } from '../../models/user';
 const router = express.Router();
 
 //GET /users
-router.get('/', async (req: Request, res: Response) => {
+router.get('/', async (_req: Request, res: Response) => {
     try {
         const users = await User.findAll({
             attributes: { exclude: ['password'] }
         });
-        return res.json(users);
+        res.json(users);
     } catch (error: any) {
-        return res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error.message });
     }
 });
 
@@ -38,18 +38,18 @@ router.put('/:id', async (req: Request, res: Response) => {
     const { username, password, email } = req.body;
     try {
         const user = await User.findByPk(id);
-    if (user) {
-        user.username = username;
-        user.password = password;
-        user.email = email;
-        await user.save();
-        res.json(user);
-    } else {
-        res.status(404).json({ message: 'User not found' });
-    } 
-} catch (error: any) {
-    return res.status(400).json({ message: error.message });
-}
+        if (user) {
+            user.username = username;
+            user.password = password;
+            user.email = email;
+            await user.save();
+            res.json(user);
+        } else {
+            res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error: any) {
+        res.status(400).json({ message: error.message });
+    }
 });
 
 // DELETE /users/:id - delete by id

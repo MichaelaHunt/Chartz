@@ -4,7 +4,7 @@ interface TextFieldProps {
     inputLabel: string | null;
     name: string | null;
     value: string | null;
-    type?: string | null; // Optional, defaults to "text"
+    type?: string | null; 
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -15,7 +15,7 @@ function TextField({ inputLabel, name, value, type = "text", onChange }: TextFie
             <input
                 className="loginInput"
                 type={type}
-                name={name}
+                name={name ?? undefined}
                 value={value}
                 onChange={onChange}
             />
