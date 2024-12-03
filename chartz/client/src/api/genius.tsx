@@ -2,7 +2,7 @@ import { GeniusSong } from "../interfaces/GeniusResponse";
 
 const retrieveSongs = async (query: string): Promise<GeniusSong[]> => {
   try {
-    const response = await fetch(`/api/songs/${query}`, {
+    const response = await fetch(`/api/genius/${query}`, {
       headers: {
         'Content-Type': 'application/json',
       }

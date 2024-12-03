@@ -2,7 +2,7 @@ import { iTunesSong } from "../interfaces/iTunesResponse";
 
 const retrieveSongs = async (query: string): Promise<iTunesSong[]> => {
   try {
-    const response = await fetch(`/api/songs/${query}`, {
+    const response = await fetch(`/api/itunes/${query}`, {
       headers: {
         'Content-Type': 'application/json',
       }
