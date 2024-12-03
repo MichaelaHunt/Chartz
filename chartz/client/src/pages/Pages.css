@@ -124,6 +124,28 @@ button {
   justify-content: center;
 }
 
+.saveSong {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 112px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.saveSong:hover {
+  background-color: #e64a19;
+  transform: scale(1.1);
+}
+
 .savedContainer {
   display: flex;
   justify-content: center;

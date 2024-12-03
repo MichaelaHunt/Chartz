@@ -80,6 +80,9 @@ function LyricsView() {
                         </div>
                     </div>
                 </div>
+                <div className="saveSong">
+                    <button>Save Song</button>
+                </div>
             </div>
         </>
     );
