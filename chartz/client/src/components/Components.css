@@ -64,6 +64,12 @@ ul {
 ul li:first-child {
   font-family: 'RubikGlitch';
   font-size: 60px;
+  text-decoration: none;
+}
+
+.chartz-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 li {
