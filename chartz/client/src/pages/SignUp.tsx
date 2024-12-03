@@ -11,11 +11,11 @@ function SignUp() {
                     <div className="loginContainer">
                         <div className="loginItem">
                             <h1 className="loginTitle">Sign up for Chartz</h1>
-                            <TextField email="placeholder"></TextField>
+                            <TextField inputLabel="placeholder"></TextField>
                             <p className="error">Invalid email. Try again.</p>
-                            <TextField email="placeholder"></TextField>
+                            <TextField inputLabel="placeholder"></TextField>
                             <p className="error">Password does not have [whatever]</p> 
-                            <TextField email="placeholder"></TextField>
+                            <TextField inputLabel="placeholder"></TextField>
                             <p className="error">Passwords do not match.</p> 
                             <button>Create Account</button>
                         </div>
