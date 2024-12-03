@@ -4,13 +4,13 @@ import './Pages.css';
 import Auth from '../utils/auth';
 import { useState, type FormEvent, type ChangeEvent } from 'react';
 import type { UserLogin } from '../interfaces/UserLogin';
-
+import { login } from '../api/AuthAPI';
 
 function Login() {
 const [userLogin, setUserLogin] = useState<UserLogin>
 ({
-    id: '',
-    email: '',
+    id: null,
+    username: '',
     password: '',
 });
 
@@ -26,7 +26,7 @@ const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     try {
         const data = await login(userLogin);
-        Auth.login(data.token);
+        Auth.loginUser(data.token);
     } catch (error) {
         console.error('Failed to log in', error);
     }
