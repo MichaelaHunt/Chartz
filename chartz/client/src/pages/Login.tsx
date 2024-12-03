@@ -12,9 +12,9 @@ function Login() {
                     <div className="loginContainer">
                         <div className="loginItem">
                             <h1 className="loginTitle">Log in to Chartz</h1>
-                            <TextField></TextField>
+                            <TextField inputLabel="placeholder"></TextField>
                             <div className="space"></div>
-                            <TextField></TextField>
+                            <TextField inputLabel="placeholder"></TextField>
                             <p className="error">Incorrect login. Please try again.</p>
                             <button>Login</button>
                             <div className="row">
