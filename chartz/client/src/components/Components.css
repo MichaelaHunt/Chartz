@@ -198,3 +198,30 @@ li {
 .spacer {
   margin: 0 8px;
 }
+
+.bannerImg {
+  margin-left: 10%;
+  width: 300px;
+  height: 300px;
+}
+
+.bannerContainer {
+  display: flex;
+  flex-direction: row;
+  height: 375px;
+  background-color: #1e1e1e;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+.bannerText {
+  position: absolute;
+  left: 50%;                    /* Position relative to the parent's center */
+  transform: translateX(-50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+}
