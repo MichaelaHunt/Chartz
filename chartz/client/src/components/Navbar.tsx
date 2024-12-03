@@ -24,7 +24,9 @@ function Navbar() {
     return (
         <div className="navContainer">
             <ul>
-                <li>CHARTZ</li>
+                <li className='nav-bar-links'>
+                <Link to="/" className="chartz-link">CHARTZ</Link>
+                </li>
                 <li><Searchbar /></li>
                 {isLoggedIn ? (
                     <>
