@@ -1,38 +1,81 @@
-# Proj-2
+# Chartz
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Client side:
-- Pages
-    - css
-    - html/jsx
-- API objects
+  ## Description
 
-Server side:
-- Connection to the db
-- calls to the database
-- calls to the api
-- routing
-- jwt auth
-- model for db
-- configuration for the db models
+  Chartz is a website that users can view to easily see the current top trending songs and their lyrics.
 
-client side - 
-getting the pages together
+  ## Table of Contents
+
+  - [Link](#website-link)
+  - [User Story](#user-story)
+  - [Preview](#preview)
+  - [Usage](#usage)
+  - [Credits](#credits)  
+  - [License](#license)
+  - [Features](#features)
+  - [Tests](#tests)
+  - [Credits](#credits)
+
+  ## Website Link
+
+  [Here](https://proj-2-qoo8.onrender.com/)
+
+  ## User Story
+
+  As a music enthusiast, 
+  I want to be able to view the top trending songs
+  So that I can be in the know!
+  and
+  I want to be able to view the top trending song lyrics
+  So that I can sing/rap along
+
+  ## Preview
 
 
-server side - 
-a - api calls, objects for the api/interface for the api data
 
-b - models, sequelize
+  ## Usage
 
-Michaela - Get jsx and the pages and components organized, save css for Nick
+  To view a song's lyrics, click on the cards containing a song's info! 
+  To save a song to your favorites list, go to the lyrics page and click the "Save this Song" button.
+  To view your saved songs, click the "Saved Songs" button in the navigation bar at the top of the screen. 
+  To remove a song you've saved, click the trash can icon on the right side of the song card. 
 
-Ashton - Models (user and saved_songs), sequelize, jwt IF TIME
+  ## Credits
 
-Nick - API calls
-- Call that gets album cover image, song title, chart position (inferred), artist, album name
-- Genius call will get lyrics for a particular song 
+  - ChatGPT
+  - [iTunes API](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html)
+  - [Genius API](https://docs.genius.com/)
+  - Typescript (node package)
+  - React (node package)
+  - Vite (node package)
+  - Dotenv (node package)
+  - Postgres and it's node package: pg
+  - Sequelize (node package)
+  - Express (node package)
+  - Nodemon (node package)
+  - Concurrently (node package)
+  - JWT-Decode (node package)
+  - Bcrypt (node package)
 
-https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html
+  ## License
 
-https://docs.genius.com/
+  This project is protected under the MIT license.
 
+  ## Features
+
+  - **View Top Trending Songs**: Easily view the current most popular songs!
+  - **View Lyrics of Any Song**: Click on a song to view its lyrics
+  - **Save Your Favorite Songs**: Save your favorite songs to quickly navigate back to its lyrics
+  - **Manage Favorite Songs**: Sick of a song? Remove a song from your favorites list!
+
+  ## Tests
+
+  To begin testing, use the following command: npm run start:dev
+
+  ## Credits
+
+  - [Michaela Hunt](https://github.com/MichaelaHunt)
+  - [Daniel Wargo](https://github.com/D-Wargle)
+  - [Ashton Gardner](https://github.com/Apgash)
+  - [Nick Zalenski](https://github.com/ElBoyTM)
