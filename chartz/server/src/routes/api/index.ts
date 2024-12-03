@@ -1,6 +1,6 @@
 import express from 'express';
-import { searchGenius } from './GeniusRoutes';
-import { searchITunes } from './iTunesRoutes';
+import { searchGenius } from './GeniusRoutes.js';
+import { searchITunes } from './iTunesRoutes.js';
 
 const router = express.Router();
 

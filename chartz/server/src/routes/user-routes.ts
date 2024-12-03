@@ -1,6 +1,6 @@
 import express from 'express';
 import type { Request, Response } from 'express';
-import { User } from '../models/user';
+import { UserModel as User } from '../models/index.js';
 
 const router = express.Router();
 
@@ -36,6 +36,7 @@ router.get('/:id', async (req: Request, res: Response) => {
 router.post('/signup', async (req: Request, res: Response) => {
     const { username, password, email } = req.body;
 try {
+    console.log('Creating user:', username, email);
     const newUser = await User.create({ username, password, email });
     res.status(201).json(newUser);
 }
