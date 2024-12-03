@@ -1,17 +1,22 @@
 import "./Components.css";
 
-function Top3Item() {
+interface Top3ItemProps {
+    img: string;
+    title: string;
+    artist: string;
+    rank: number;
+}
+
+function Top3Item({ img, title, artist, rank }: Top3ItemProps) {
     return (
-        <>
-            <div className="top3item">
-                <div>
-                    <img className="top3img"></img>
-                    <h6 className="top3title">Song Title</h6>
-                    <p className="top3artist">Song Artist</p>
-                </div>
-                <h2>#1</h2>
+        <div className="top3item">
+            <div>
+                <img src={img} alt={title} className="top3img" />
+                <h6 className="top3title">{title}</h6>
+                <p className="top3artist">{artist}</p>
             </div>
-        </>
+            <h2>#{rank}</h2>
+        </div>
     );
 }
 
