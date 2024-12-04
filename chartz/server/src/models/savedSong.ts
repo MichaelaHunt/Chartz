@@ -13,9 +13,12 @@ export function SavedSongFactory(sequelize: Sequelize): typeof SavedSong {
                 autoIncrement: true,  
                 primaryKey: true,     
             },
-            apiPath: {
-                type: DataTypes.STRING(150),
+            geniusSongId: {
+                type: DataTypes.STRING(20),
                 allowNull: false,
+            },
+            songTitle: {
+                type: DataTypes.STRING(50)
             }
         },
         {

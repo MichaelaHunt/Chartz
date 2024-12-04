@@ -1,24 +1,34 @@
-import { Request } from 'express';
+import { Router, type Request, type Response } from 'express';
+const router = Router();
 
-const searchGenius = async (req: Request) => {
+//1: Get one particular song's data by title
+router.post('/search', async (req: Request, res: Response) => {
     try {
-        const response = await fetch(
-        `https://api.genius.com/search?q=${req.params.query}`,
-        {
-            headers: {
-                Authorization: `Bearer ${process.env.API_KEY}`,
-            },
-        }
-        );
-        const data = await response.json();
-        if (!response.ok) {
-        throw new Error('invalid API response, check the network tab');
-        }
-        return data;
+        const { songTitle } = req.body;
+        console.log("Check");
+        const data = await fetch(`https://api.genius.com/search?q=${songTitle}&access_token=${process.env.API_KEY}`).then(res => res.json());
+        console.log(JSON.stringify(data));
+        res.json(data);
     } catch (err) {
-        console.log('an error occurred', err);
-        return [];
+        console.log(err);
+        res.status(500).json({ error: "Failed to retrieve data from Genius API." });
     }
-};
+});
 
-export { searchGenius };
+//2: Get one song's data by Id
+router.get('/song/:id', async (req: Request, res: Response) => {
+    try {
+        const id = req.params.id;
+        const data = await fetch(`https://api.genius.com/songs/${id}`, {
+            headers: {
+                "Authorization": `Bearer ${process.env.API_KEY}`
+            }
+        }).then(res => res.json());
+        res.json(data);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: "Failed to retrieve data from Genius API." });
+    }
+});
+
+export default router;
