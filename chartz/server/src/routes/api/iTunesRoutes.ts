@@ -2,15 +2,18 @@ import { Router, type Request, type Response } from 'express';
 const router = Router();
 
 //1: Get the top 10 trending song's data
-router.get('/10trending', async (res: Response) => {
+router.get('/10trending', async (_req: Request, res: Response) => {
     try {
-        const data = await fetch('https://itunes.apple.com/us/rss/topsongs/limit=10/json').then(res => res.json());
-        console.log(JSON.stringify(data));
+        const data = await fetch('https://itunes.apple.com/us/rss/topsongs/limit=10/json').then(res => {
+            // console.log("Response",res.json())
+            return res.json()
+        });
         res.json(data);
     } catch (err) {
         console.log(err);
         res.status(500).json({ error: "Failed to retrieve data from iTunes API." });
     }
+
 });
 
 //2: Get one particular song's data

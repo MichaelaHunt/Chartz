@@ -19,7 +19,11 @@ router.post('/search', async (req: Request, res: Response) => {
 router.get('/song/:id', async (req: Request, res: Response) => {
     try {
         const id = req.params.id;
-        const data = await fetch(`https://api.genius.com/songs/${id}`).then(res => res.json());
+        const data = await fetch(`https://api.genius.com/songs/${id}`, {
+            headers: {
+                "Authorization": `Bearer ${process.env.API_KEY}`
+            }
+        }).then(res => res.json());
         res.json(data);
     } catch (err) {
         console.log(err);
