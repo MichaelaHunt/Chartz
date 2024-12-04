@@ -4,7 +4,8 @@ const router = Router();
 //1: Get the top 10 trending song's data
 router.get('/10trending', async (res: Response) => {
     try {
-        const data = await fetch('https://itunes.apple.com/us/rss/topsongs/limit=10/json');
+        const data = await fetch('https://itunes.apple.com/us/rss/topsongs/limit=10/json').then(res => res.json());
+        console.log(JSON.stringify(data));
         res.json(data);
     } catch (err) {
         console.log(err);
@@ -13,10 +14,10 @@ router.get('/10trending', async (res: Response) => {
 });
 
 //2: Get one particular song's data
-router.get('/search', async (req: Request, res: Response) => {
+router.post('/search', async (req: Request, res: Response) => {
     try {
         const songTitle = req.body;
-        const data = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(songTitle)}&entity=musicTrack&limit=1&media=music`);
+        const data = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(songTitle)}&entity=musicTrack&limit=1&media=music`).then(res => res.json());
         res.json(data);
     } catch (err) {
         console.log(err);

@@ -16,21 +16,15 @@ router.post('/search', async (req: Request, res: Response) => {
 });
 
 //2: Get one song's data by Id
-// router.get('/song:id', async (res: Response) => {
-//     try {
-//         const id = req.params.id;
-//         const data = await fetch(`https://api.genius.com/songs/${id}`, {
-//             method: 'GET',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'access_token': `${process.env.API_KEY}`
-//             },
-//         });
-//         res.json(data);
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json({ error: "Failed to retrieve data from Genius API." });
-//     }
-// });
+router.get('/song/:id', async (req: Request, res: Response) => {
+    try {
+        const id = req.params.id;
+        const data = await fetch(`https://api.genius.com/songs/${id}`).then(res => res.json());
+        res.json(data);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: "Failed to retrieve data from Genius API." });
+    }
+});
 
 export default router;
