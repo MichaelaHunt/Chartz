@@ -1,19 +1,27 @@
-const searchITunes = async () => {
-    try {
-        const response = await fetch(
-        `https://itunes.apple.com/us/rss/topsongs/limit=10/json`
-        );
-        console.log('Response:', response);
-        const data = await response.json();
-        if (!response.ok) {
-        throw new Error('invalid API response, check the network tab');
-        }
-        console.log('Data:', data);
-        return data;
-    } catch (err) {
-        console.log('an error occurred', err);
-        return [];
-    }
-};
+import { Router, type Request, type Response } from 'express';
+const router = Router();
 
-export { searchITunes };
+//1: Get the top 10 trending song's data
+router.get('/10trending', async (res: Response) => {
+    try {
+        const data = await fetch('https://itunes.apple.com/us/rss/topsongs/limit=10/json');
+        res.json(data);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: "Failed to retrieve data from iTunes API." });
+    }
+});
+
+//2: Get one particular song's data
+router.get('/search', async (req: Request, res: Response) => {
+    try {
+        const songTitle = req.body;
+        const data = await fetch(`https://itunes.apple.com/search?term=${encodeURIComponent(songTitle)}&entity=musicTrack&limit=1&media=music`);
+        res.json(data);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: "Failed to retrieve data from iTunes API." });
+    }
+});
+
+export default router;

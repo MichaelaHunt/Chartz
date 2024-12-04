@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS chartz_user_db;
 
 CREATE DATABASE chartz_user_db;
 
-\c chartz_user_db
+-- \c chartz_user_db
 
 -- CREATE TABLE users (
 --     id SERIAL PRIMARY KEY,
@@ -13,7 +13,8 @@ CREATE DATABASE chartz_user_db;
 
 -- CREATE TABLE saved_song (
 --     id SERIAL PRIMARY KEY,
---     apiPath VARCHAR(100)
+--     geniusSongId VARCHAR(100),
+--     songTitle VARCHAR(50)
 -- );
 
 -- CREATE TABLE user_songs (

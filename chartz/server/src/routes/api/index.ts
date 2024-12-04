@@ -1,10 +1,10 @@
-import express from 'express';
-import { searchGenius } from './GeniusRoutes.js';
-import { searchITunes } from './iTunesRoutes.js';
+import Router from 'express';
+import iTunesRoutes from './iTunesRoutes.js';
+import geniusRoutes from './GeniusRoutes.js';
 
-const router = express.Router();
+const router = Router();
 
-router.use('/genius', searchGenius);
-router.use('/itunes', searchITunes);
+router.use('/genius', geniusRoutes);
+router.use('/itunes', iTunesRoutes);
 
 export default router;
