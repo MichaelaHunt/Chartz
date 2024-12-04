@@ -14,25 +14,25 @@ function Home() {
                     <div>
                         <h1 className="first sectionTitle">Top 3 Songs</h1>
                         <div className="top3container">
-                            <Top3Item></Top3Item>
-                            <Top3Item></Top3Item>
-                            <Top3Item></Top3Item>
+                        <Top3Item img="img1.jpg" title="Song 1" artist="Artist 1" rank={1} />
+                        <Top3Item img="img1.jpg" title="Song 1" artist="Artist 1" rank={1} />
+                        <Top3Item img="img1.jpg" title="Song 1" artist="Artist 1" rank={1} />
                         </div>
                     </div>
                     {/*TOP 10 SONGS SECTION*/}
                     <div>
                         <h1 className="sectionTitle">Top 10 Songs</h1>
                         <div className="top10container">
-                            <Top10Item></Top10Item>
-                            <Top10Item></Top10Item>
-                            <Top10Item></Top10Item>
-                            <Top10Item></Top10Item>
-                            <Top10Item></Top10Item>
-                            <Top10Item></Top10Item>
-                            <Top10Item></Top10Item>
-                            <Top10Item></Top10Item>
-                            <Top10Item></Top10Item>
-                            <Top10Item></Top10Item>
+                            <Top10Item img="img10.jpg" title="Song" artist="Artist"></Top10Item>
+                            <Top10Item img="img10.jpg" title="Song" artist="Artist"></Top10Item>
+                            <Top10Item img="img10.jpg" title="Song" artist="Artist"></Top10Item>
+                            <Top10Item img="img10.jpg" title="Song" artist="Artist"></Top10Item>
+                            <Top10Item img="img10.jpg" title="Song" artist="Artist"></Top10Item>
+                            <Top10Item img="img10.jpg" title="Song" artist="Artist"></Top10Item>
+                            <Top10Item img="img10.jpg" title="Song" artist="Artist"></Top10Item>
+                            <Top10Item img="img10.jpg" title="Song" artist="Artist"></Top10Item>
+                            <Top10Item img="img10.jpg" title="Song" artist="Artist"></Top10Item>
+                            <Top10Item img="img10.jpg" title="Song" artist="Artist"></Top10Item>
                         </div>
                     </div>
                     {/*RECENT VIEWS SECTION*/}

@@ -1,6 +1,6 @@
-import sequelize from "../config/connection";
-import { UserFactory } from "./user";
-import { SavedSongFactory } from "./savedSong";
+import sequelize from "../config/connection.js";
+import { UserFactory } from "./user.js";
+import { SavedSongFactory } from "./savedSong.js";
 
 const UserModel = UserFactory(sequelize);
 

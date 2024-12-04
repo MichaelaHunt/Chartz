@@ -1,3 +1,4 @@
+import Banner, { bannerProps } from "../components/Banner";
 import Navbar from "../components/Navbar";
 import './Pages.css';
 const lyric = `[Verse 1]
@@ -57,21 +58,13 @@ Ooh, you've got me thinking, "She's so cool"
 But I know what I know and you're just another dude
 Ooh, that's so true, ooh, ooh, oh`;
 
+let songInfo: bannerProps;
 function LyricsView() {
     return (
         <>
             <div className="page">
                 <Navbar></Navbar>
-                <div className="bannerContainer">
-                    <img className="bannerImg"></img>
-                    <div className="bannerText">
-                        <h1>Song Title</h1>
-                        <h4>from</h4>
-                        <h2>Album</h2>
-                        <h4>by</h4>
-                        <h2>Artist</h2>
-                    </div>
-                </div>
+                <Banner {...songInfo}></Banner>
                 <div className="body">
                     {/*lyrics section here*/}
                     <div className="lyricsContainer">
