@@ -13,7 +13,7 @@ const retrieveSongs = async (query: string): Promise<GeniusSong[]> => {
       throw new Error('Invalid user API response, check network tab!');
     }
 
-    return data.songs;
+    return data;
 
   } catch (err) { 
     console.log('Error from data retrieval:', err);
