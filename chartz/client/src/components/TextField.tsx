@@ -14,9 +14,9 @@ function TextField({ inputLabel, name, value, type = "text", onChange }: TextFie
             <h3>{inputLabel}</h3>
             <input
                 className="loginInput"
-                type={type}
+                type={type ?? "text"}
                 name={name ?? undefined}
-                value={value}
+                value={value ?? ""}
                 onChange={onChange}
             />
         </div>
