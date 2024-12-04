@@ -1,6 +1,6 @@
 import express from 'express';
 import type { Request, Response } from 'express';
-import { UserModel as User } from '../models/index.js';
+import { UserModel as User, SavedSongModel as SavedSongs, UserSavedSong } from '../models/index.js';
 
 const router = express.Router();
 
