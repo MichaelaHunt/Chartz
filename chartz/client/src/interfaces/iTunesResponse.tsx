@@ -19,3 +19,10 @@ export interface iTunesTrendingSong {//home page return
     album: string;
     image100: string;
   }
+
+  export interface itemType {
+    title: { label: string };
+    "im:artist": { label: string };
+    "im:name": { label: string };
+    "im:image": { label: string }[];
+  }

@@ -1,4 +1,4 @@
-import { iTunesSong } from "../interfaces/iTunesResponse";
+import { iTunesSong, type itemType } from "../interfaces/iTunesResponse";
 
 async function retrieveTrendingSongs() {
   try {
@@ -13,11 +13,10 @@ async function retrieveTrendingSongs() {
       throw new Error('Invalid user API response, check network tab!');
     }
 
-    //feed.entry is the array of 10
     let set: any[] = [];
     const entries = data.feed.entry;
-    //TODO:
-    entries.forEach(item => {
+    
+    entries.forEach((item: itemType) => {
       const title = item.title.label;
       const artist = item["im:artist"].label;
       const album = item["im:name"].label;
@@ -27,7 +26,6 @@ async function retrieveTrendingSongs() {
       set.push({title, artist, album, image55, image60, image170});
     });
 
-    // console.log(set);
     return set;
 
   } catch (err) { 
