@@ -6,9 +6,10 @@ import './Pages.css';
 import { retrieveTrendingSongs } from "../api/itunes";
 // import "../components/Components.css";
 
+const song = useEffect(() => {console.log("Returned value: " + retrieveTrendingSongs());}, []);
+
 function Home() {
     //get the data for the 10trending, none else. 
-    const song = useEffect(() => {console.log("Returned value: " + retrieveTrendingSongs());}, []);
     
     return (
         <>
