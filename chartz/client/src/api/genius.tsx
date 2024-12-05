@@ -1,24 +1,43 @@
 import { GeniusSong } from "../interfaces/GeniusResponse";
 
-const retrieveSongs = async (query: string): Promise<GeniusSong[]> => {
+async function getGeniusSongData(songTitle: string) {
   try {
-    const response = await fetch(`/api/genius/${query}`, {
+    //first search for the song, then get the song details with the other fetch
+    const response = await fetch(`/api/genius/search`, {
+      method: 'POST', 
       headers: {
-        'Content-Type': 'application/json',
-      }
+        'Content-Type': 'application/json', 
+      },
+      body: JSON.stringify({
+        songTitle: songTitle, 
+      }),
     });
     const data = await response.json();
+    const { response: { hits } } = data;
+    const id = hits[0].result.id;
 
-    if (!response.ok) {
-      throw new Error('Invalid user API response, check network tab!');
-    }
+    //now get the song details
+    const res = await fetch(`/api/genius/song/${id}`, {
+      method: 'GET', 
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+    });
+    //we want the description and url
+    const details = await res.json();
+    const description = details.response.song.description
+    //TODO: destructure description more to get the actual string
 
-    return data;
-
+    const url = details.response.song.url;
+    
+    const returnData: GeniusSong = { description, url };
+    console.log("Returndata: " + JSON.stringify(returnData));
+    return returnData;
   } catch (err) { 
     console.log('Error from data retrieval:', err);
-    return [];
+    return {};
   }
-};
+}
 
-export { retrieveSongs };
+
+export { getGeniusSongData };

@@ -5,9 +5,9 @@ const router = Router();
 router.post('/search', async (req: Request, res: Response) => {
     try {
         const { songTitle } = req.body;
-        console.log("Check");
+        // console.log("Check");
         const data = await fetch(`https://api.genius.com/search?q=${songTitle}&access_token=${process.env.API_KEY}`).then(res => res.json());
-        console.log(JSON.stringify(data));
+        // console.log(JSON.stringify(data));
         res.json(data);
     } catch (err) {
         console.log(err);

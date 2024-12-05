@@ -1,10 +1,5 @@
 export interface GeniusSong {
-    id: number;
-    title: string;
-    artist: string;
-    lyrics: string;
+    description: string;
+    url: string;
   }
   
-  export interface GeniusResponse {
-    songs: GeniusSong[];
-  }
