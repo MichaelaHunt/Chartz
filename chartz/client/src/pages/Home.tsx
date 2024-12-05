@@ -3,12 +3,12 @@ import Navbar from "../components/Navbar";
 import Top10Item from "../components/Top10Item";
 import Top3Item from "../components/Top3Item";
 import './Pages.css';
-import { retrieveTrendingSongs, searchOneSong } from "../api/itunes";
+import { retrieveTrendingSongs } from "../api/itunes";
 // import "../components/Components.css";
 
 function Home() {
     //get the data for the 10trending, none else. 
-    useEffect(() => {console.log("Returned value: " + searchOneSong("Shape of You"));}, []);
+    const song = useEffect(() => {console.log("Returned value: " + retrieveTrendingSongs());}, []);
     
     return (
         <>
