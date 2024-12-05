@@ -7,7 +7,7 @@ const UserModel = UserFactory(sequelize);
 const SavedSongModel = SavedSongFactory(sequelize);
 
 // Define the tables 
-const UserSavedSong = sequelize.define('UserSavedSong', {}, { timestamps: false });
+const UserSavedSong = sequelize.define('UserSavedSong', {}, { timestamps: false, tableName: 'userSavedSongs' });
 
 //set up associations
 UserModel.belongsToMany(SavedSongModel, { through: UserSavedSong });

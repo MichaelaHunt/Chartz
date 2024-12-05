@@ -1,41 +1,46 @@
-import { UserModel, SavedSongModel, UserSavedSong } from '../models/index.js';
-
+import { SavedSong } from './savedSong';
+import { User } from './user';
+import { UserSavedSong } from './index';
 // Get a user by ID
 export const getUser = async (userId: string) => {
-  return await UserModel.findByPk(userId);
+    return await User.findByPk(userId);
 };
 
 // Get a user with their saved songs
 export const getUserWithSongs = async (userId: string) => {
-  return await UserModel.findByPk(userId, {
-    include: SavedSongModel, // Load associated songs
-  });
+    return await User.findByPk(userId, {
+        include: SavedSong, // Fetch associated songs
+    });
 };
 
 // Create a new user
 export const createUser = async (username: string, email: string, password: string) => {
-  return await UserModel.create({ username, email, password });
+    return await User.create({ username, email, password });
 };
 
 // Add a saved song to a user
-export const addSavedSong = async (userId: string, songData: string) => {
-  // Find or create the song
-  const [song] = await SavedSongModel.findOrCreate({
-    where: { title: songData.title, artist: songData.artist },
-    defaults: songData,
-  });
+export const addSavedSong = async (userId: string, songTitle: { geniusSongId: string, [key: string]: any }) => {
+    // Find or create the song
+    const [song] = await SavedSong.findOrCreate({
+        where: { geniusSongId: songTitle.geniusSongId },
+        defaults: { ...songTitle }, // Add any additional fields
+    });
 
-  // Link the user and song
-  await UserSavedSong.findOrCreate({
-    where: { UserModelId: userId, SavedSongModelId: song.id },
-  });
+    // Link the user and song
+    await UserSavedSong.findOrCreate({
+        where: { UserId: userId, SavedSongId: song.id },
+    });
 
-  return song;
+    return song;
 };
 
 // Remove a saved song from a user
 export const removeSavedSong = async (userId: string, songId: string) => {
-  await UserSavedSong.destroy({
-    where: { UserModelId: userId, SavedSongModelId: songId },
-  });
+    const rowsDeleted = await UserSavedSong.destroy({
+        where: { UserId: userId, SavedSongId: songId },
+    });
+
+    if (rowsDeleted === 0) {
+        throw new Error('Song association not found');
+    }
 };
