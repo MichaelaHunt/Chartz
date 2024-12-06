@@ -47,16 +47,16 @@ function Home() {
                                 <div>Songs loading</div>
                             ) : (
                             <>
-                                <Top10Item img={songs[0].image60} title={songs[0].title} artist={songs[0].artist}></Top10Item>
-                                <Top10Item img={songs[1].image60} title={songs[1].title} artist={songs[1].artist}></Top10Item>
-                                <Top10Item img={songs[2].image60} title={songs[2].title} artist={songs[2].artist}></Top10Item>
-                                <Top10Item img={songs[3].image60} title={songs[3].title} artist={songs[3].artist}></Top10Item>
-                                <Top10Item img={songs[4].image60} title={songs[4].title} artist={songs[4].artist}></Top10Item>
-                                <Top10Item img={songs[5].image60} title={songs[5].title} artist={songs[5].artist}></Top10Item>
-                                <Top10Item img={songs[6].image60} title={songs[6].title} artist={songs[6].artist}></Top10Item>
-                                <Top10Item img={songs[7].image60} title={songs[7].title} artist={songs[7].artist}></Top10Item>
-                                <Top10Item img={songs[8].image60} title={songs[8].title} artist={songs[8].artist}></Top10Item>
-                                <Top10Item img={songs[9].image60} title={songs[9].title} artist={songs[9].artist}></Top10Item>
+                                <Top10Item img={songs[0].image60} title={songs[0].title} artist={songs[0].artist} rank="1"></Top10Item>
+                                <Top10Item img={songs[1].image60} title={songs[1].title} artist={songs[1].artist} rank="2"></Top10Item>
+                                <Top10Item img={songs[2].image60} title={songs[2].title} artist={songs[2].artist} rank="3"></Top10Item>
+                                <Top10Item img={songs[3].image60} title={songs[3].title} artist={songs[3].artist} rank="4"></Top10Item>
+                                <Top10Item img={songs[4].image60} title={songs[4].title} artist={songs[4].artist} rank="5"></Top10Item>
+                                <Top10Item img={songs[5].image60} title={songs[5].title} artist={songs[5].artist} rank="6"></Top10Item>
+                                <Top10Item img={songs[6].image60} title={songs[6].title} artist={songs[6].artist} rank="7"></Top10Item>
+                                <Top10Item img={songs[7].image60} title={songs[7].title} artist={songs[7].artist} rank="8"></Top10Item>
+                                <Top10Item img={songs[8].image60} title={songs[8].title} artist={songs[8].artist} rank="9"></Top10Item>
+                                <Top10Item img={songs[9].image60} title={songs[9].title} artist={songs[9].artist} rank="10"></Top10Item>
                             </>
                             )}
                         </div>
