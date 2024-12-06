@@ -53,12 +53,13 @@ async function searchOneSong(songTitle: string) {
       title:trackName, 
       artist: artistName, 
       album: collectionName, 
-      image100: artworkUrl100 };
+      image100: artworkUrl100 
+    };
 
-    return songData;
+    return songData as iTunesSong;
   } catch (err) {
     console.log('Error from data retrieval:', err);
-    return {};
+    return {title: "", artist: "", album: "", image100: ""};
   }
 }
 
