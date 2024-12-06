@@ -1,6 +1,6 @@
 import { UserModel, SavedSongModel, UserSavedSong } from './index.js';
 
-// Get a user by ID
+// Get a user by id
 export const getUser = async (userId: string) => {
     return await UserModel.findByPk(userId);
 };
@@ -10,7 +10,7 @@ export const getUserWithSongs = async (userId: string) => {
     return await UserModel.findByPk(userId, {
         include: {
             model: SavedSongModel,
-            through: { attributes: [] }, // Exclude junction table data
+            through: { attributes: [] },
         },
     });
 };
@@ -21,14 +21,15 @@ export const createUser = async (username: string, email: string, password: stri
 };
 
 // Add a saved song to a user
-export const addSavedSong = async (userId: string, songData: { geniusSongId: string; songTitle?: string }) => {
+export const addSavedSong = async (userId: string, songData: { geniusSongId: number; songTitle?: string }) => {
+
     // Find or create the song
     const [song] = await SavedSongModel.findOrCreate({
         where: { geniusSongId: songData.geniusSongId },
         defaults: { ...songData },
     });
 
-    // Link the user and song
+    // Link the user to the song
     await UserSavedSong.findOrCreate({
         where: { UserId: userId, SavedSongId: song.id },
     });
@@ -42,7 +43,8 @@ export const removeSavedSong = async (userId: string, songId: string) => {
         where: { UserId: userId, SavedSongId: songId },
     });
 
+    //conditional to check if the songs were deleted
     if (rowsDeleted === 0) {
-        throw new Error('Song association not found');
+        throw new Error('We did not find a song with that name!');
     }
 };
