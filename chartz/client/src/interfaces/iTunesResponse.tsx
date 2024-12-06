@@ -6,6 +6,7 @@ export interface iTunesTrendingSong {//home page return
     image55: string;
     image60: string;
     image170: string;
+    rank: number;
   }
   
   export interface iTunesResponse {
@@ -18,6 +19,7 @@ export interface iTunesTrendingSong {//home page return
     artist: string;
     album: string;
     image100: string;
+    rank: number;
   }
 
   export interface itemType {
