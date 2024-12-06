@@ -23,10 +23,23 @@ async function getGeniusSongData(songTitle: string) {
         'Content-Type': 'application/json', 
       },
     });
-    //we want the description and url
-    const details = await res.json();
-    const description = details.response.song.description
-    //TODO: destructure description more to get the actual string
+     //we want the description and url
+     const details = await res.json();
+    const descriptionChildren = details.response.song.description.dom.children;
+    
+    // Function to extract text from children
+    const extractText = (children: any[]): string => {
+      return children.map((child: any) => {
+        if (typeof child === 'string') {
+          return child;
+        } else if (child.children) {
+          return extractText(child.children);
+        }
+        return '';
+      }).join('');
+    };
+
+    const description = extractText(descriptionChildren);
 
     const url = details.response.song.url;
     
@@ -39,5 +52,15 @@ async function getGeniusSongData(songTitle: string) {
   }
 }
 
+async function fetchData() {
+  try {
+    const returnData = await getGeniusSongData("Shape of You");
+    console.log("Returndata: " + JSON.stringify(returnData));
+  } catch (err) {
+    console.log('Error from data retrieval:', err);
+  }
+}
+
+fetchData();
 
 export { getGeniusSongData };
