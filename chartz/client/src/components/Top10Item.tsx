@@ -4,7 +4,7 @@ interface Top10ItemProps {
     img: string;
     title: string;
     artist: string;
-    rank: number;
+    rank: string | number;
 }
 
 function Top10Item({ img, title, artist, rank }: Top10ItemProps) {

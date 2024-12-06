@@ -54,7 +54,6 @@ async function searchOneSong(songTitle: string) {
       artist: artistName, 
       album: collectionName, 
       image100: artworkUrl100,
-      rank: 0 
     };
 
     return songData;
