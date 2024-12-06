@@ -1,7 +1,7 @@
 import express from 'express';
 import { searchGenius } from './GeniusRoutes.js';
 import { searchITunes } from './iTunesRoutes.js';
-import userRoutes from './user-routes.js';
+import userRoutes from '../user-routes.js';
 
 const router = express.Router();
 
