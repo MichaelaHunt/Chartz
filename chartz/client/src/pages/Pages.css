@@ -164,9 +164,10 @@ button {
 .scrollContainer {
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  overflow-y: scroll;
   scroll-behavior: smooth;
   height: 450px;
+  scrollbar-color: #000000 var(--nav-grey);
 }
 
 .scrollContainer > * {
