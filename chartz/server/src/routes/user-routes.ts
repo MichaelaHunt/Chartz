@@ -1,6 +1,6 @@
 import express from 'express';
 import type { Request, Response } from 'express';
-import { UserModel as User } from '../models/index.js';
+import { UserModel as User, SavedSongModel as SavedSong, UserSavedSong } from '../models/index.js';
 
 const router = express.Router();
 
@@ -75,6 +75,74 @@ router.delete('/:id', async (req: Request, res: Response) => {
         } else {
             return res.status(404).json({ message: 'User not found' });
         }
+    } catch (error: any) {
+        return res.status(500).json({ message: error.message });
+    }
+});
+
+// GET /users/:id/songs - Get all saved songs for a user
+router.get('/:id/songs', async (req: Request, res: Response) => {
+    try {
+        const user = await User.findByPk(req.params.id, {
+            include: {
+                model: SavedSong,
+                through: { attributes: [] }, // Exclude the junction table data
+            },
+        });
+
+        if (user) {
+            return res.json(user.get('SavedSongs'));
+            
+        } else {
+            return res.status(404).json({ message: 'User not found' });
+        }
+    } catch (error: any) {
+        return res.status(500).json({ message: error.message });
+    }
+});
+
+// POST to add a song to a user by ID
+router.post('/:id/songs', async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const { geniusSongId, songTitle } = req.body;
+
+    try {
+        const user = await User.findByPk(id);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        // Find or create the song
+        const [savedSong] = await SavedSong.findOrCreate({
+            where: { geniusSongId },
+            defaults: { songTitle },
+        });
+
+        // Link the user and song
+        await UserSavedSong.findOrCreate({
+            where: { UserId: id, SavedSongId: savedSong.id },
+        });
+
+        return res.status(201).json(savedSong);
+    } catch (error: any) {
+        return res.status(500).json({ message: error.message });
+    }
+});
+
+// DELETE a song from a user by ID
+router.delete('/:id/songs/:songId', async (req: Request, res: Response) => {
+    const { id, songId } = req.params;
+
+    try {
+        const rowsDeleted = await UserSavedSong.destroy({
+            where: { UserId: id, SavedSongId: songId },
+        });
+
+        if (rowsDeleted === 0) {
+            return res.status(404).json({ message: 'Song association not found' });
+        }
+
+        return res.json({ message: 'Song removed' });
     } catch (error: any) {
         return res.status(500).json({ message: error.message });
     }

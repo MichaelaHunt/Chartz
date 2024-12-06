@@ -14,7 +14,7 @@ export function SavedSongFactory(sequelize: Sequelize): typeof SavedSong {
                 primaryKey: true,     
             },
             geniusSongId: {
-                type: DataTypes.STRING(20),
+                type: DataTypes.INTEGER,
                 allowNull: false,
             },
             songTitle: {
