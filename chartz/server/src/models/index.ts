@@ -6,4 +6,11 @@ const UserModel = UserFactory(sequelize);
 
 const SavedSongModel = SavedSongFactory(sequelize);
 
-export { UserModel, SavedSongModel };
+// Define the tables 
+const UserSavedSong = sequelize.define('UserSavedSong', {}, { timestamps: false, tableName: 'userSavedSongs' });
+
+//set up associations
+UserModel.belongsToMany(SavedSongModel, { through: UserSavedSong, foreignKey: 'userId' });
+SavedSongModel.belongsToMany(UserModel, { through: UserSavedSong, foreignKey: 'SavedSongId' });
+
+export { UserModel, SavedSongModel, UserSavedSong };

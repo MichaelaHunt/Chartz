@@ -4,13 +4,14 @@ interface Top10ItemProps {
     img: string;
     title: string;
     artist: string;
+    rank: string | number;
 }
 
-function Top10Item({ img, title, artist }: Top10ItemProps) {
+function Top10Item({ img, title, artist, rank }: Top10ItemProps) {
     return (
         <>
             <div className="top10item">
-                <h1>1</h1>
+                <h1>{rank}</h1>
                 <div>
                     <img src={img} alt={title} className="top10img"></img>
                     <div>

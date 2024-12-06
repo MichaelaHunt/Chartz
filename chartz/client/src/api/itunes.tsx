@@ -50,7 +50,7 @@ async function searchOneSong(songTitle: string) {
     const { trackName, artistName, collectionName, artworkUrl100 } = data.results[0];
     //translates to: songTitle, artist, Id, albumName, 100px size image link
     let songData: iTunesSong = { 
-      title:trackName, 
+      title: trackName, 
       artist: artistName, 
       album: collectionName, 
       image100: artworkUrl100 
