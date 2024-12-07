@@ -5,7 +5,7 @@ import Home from './pages/Home.tsx'
 import ReactDOM from 'react-dom/client'
 import Login from './pages/Login.tsx'
 import SignUp from './pages/SignUp.tsx'
-import LyricsView from './pages/LyricsView.tsx'
+import DetailsView from './pages/DetailsView.tsx'
 import SavedView from './pages/SavedView.tsx'
 
 const router = createBrowserRouter([
@@ -27,8 +27,8 @@ const router = createBrowserRouter([
         element: <Login/>
       },
       {
-        path: '/lyrics',
-        element: <LyricsView/>
+        path: '/details',
+        element: <DetailsView/>
       },
       {
         path: '/saved',

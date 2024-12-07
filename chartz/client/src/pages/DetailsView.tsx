@@ -9,7 +9,7 @@ import { iTunesSong } from "../interfaces/iTunesResponse";
 
 
 
-function LyricsView() {
+function DetailsView() {
     let songInfo: iTunesSong = { title: "", album: "", artist: "" };
     const [songDetails, setSongDetails] = useState<GeniusSong>({ description: "", url: "", image: "" });
     const [props, setProps] = useState<bannerProps>({ img: "", songTitle: "", albumName: "", artistName: "" });
@@ -60,4 +60,4 @@ function LyricsView() {
     );
 }
 
-export default LyricsView;
+export default DetailsView;
