@@ -20,7 +20,9 @@ router.get('/10trending', async (_req: Request, res: Response) => {
 router.post('/search', async (req: Request, res: Response) => {
     try {
         const { songTitle } = req.body;
+      
         const data = await fetch(`https://itunes.apple.com/search?term=${songTitle}&entity=musicTrack&limit=1&media=music`).then(res => res.json());
+
         res.json(data);
     } catch (err) {
         console.log(err);
