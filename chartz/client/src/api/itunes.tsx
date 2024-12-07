@@ -46,20 +46,19 @@ async function searchOneSong(songTitle: string) {
       }),
     });
     const data = await response.json();
-
-    const { trackName, artistName, collectionName, artworkUrl100 } = data.results[0];
-    //translates to: songTitle, artist, Id, albumName, 100px size image link
+    
+    const { trackName, artistName, collectionName} = data.results[0];
+    //translates to: songTitle, artist, Id, albumName
     let songData: iTunesSong = { 
       title: trackName, 
       artist: artistName, 
-      album: collectionName, 
-      image100: artworkUrl100,
+      album: collectionName
     };
-
+    console.log("Song Data: " + JSON.stringify(songData));
     return songData;
   } catch (err) {
     console.log('Error from data retrieval:', err);
-    return {};
+    return {title: "", artist: "", album: ""};
   }
 }
 

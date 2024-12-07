@@ -10,7 +10,7 @@ interface SavedSongProps {
 function SavedSong({ img, title, artist, onRemove }: SavedSongProps) {
     return (
         <>
-            <div className="savedSongItem">
+            <div className="savedSongItem" id="bringToDetailsPg">
                 <img src={img} alt={title}></img>
                 <h3>{title}</h3>{/*in the code, truncate the song name if it gets too long we want to leave room for the artist name! */}
                 <h3 className="spacer">|</h3>

@@ -24,7 +24,7 @@ async function getGeniusSongData(songTitle: string) {
       },
     });
      //we want the description and url
-     const details = await res.json();
+    const details = await res.json();
     const descriptionChildren = details.response.song.description.dom.children;
     
     // Function to extract text from children
@@ -42,25 +42,15 @@ async function getGeniusSongData(songTitle: string) {
     const description = extractText(descriptionChildren);
 
     const url = details.response.song.url;
+
+    const image = details.response.song.header_image_thumbnail_url;
     
-    const returnData: GeniusSong = { description, url };
-    console.log("Returndata: " + JSON.stringify(returnData));
+    const returnData: GeniusSong = { description, url, image };
     return returnData;
   } catch (err) { 
     console.log('Error from data retrieval:', err);
-    return {};
+    return {description: "", url: "", image: ""};
   }
 }
-
-async function fetchData() {
-  try {
-    const returnData = await getGeniusSongData("Shape of You");
-    console.log("Returndata: " + JSON.stringify(returnData));
-  } catch (err) {
-    console.log('Error from data retrieval:', err);
-  }
-}
-
-fetchData();
 
 export { getGeniusSongData };

@@ -12,7 +12,7 @@ function Top10Item({ img, title, artist, rank }: Top10ItemProps) {
         <>
             <div className="top10item">
                 <h1>{rank}</h1>
-                <div>
+                <div id="bringToDetailsPg">
                     <img src={img} alt={title} className="top10img"></img>
                     <div>
                         <h6 className="top10text">{title}</h6>
