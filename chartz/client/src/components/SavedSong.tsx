@@ -1,7 +1,7 @@
 import "./Components.css";
 
 interface SavedSongProps {
-    img: string;
+    img?: string;
     title: string;
     artist: string;
     onRemove: () => void;

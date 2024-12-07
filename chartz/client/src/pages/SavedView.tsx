@@ -49,7 +49,6 @@ function SavedView() {
     //then we need to get the data on those rows
 
     async function getSongData() {
-        // let tempArray: iTunesSong[] = [];
         let tempItunesArray: iTunesSong[] = await Promise.all(dummyData.map(async (song) => {
             return await searchOneSong(song.songTitle);
         }));
@@ -64,6 +63,10 @@ function SavedView() {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        console.log(JSON.stringify(savedSongs));
+    }, [savedSongs]);
+
     return (
         <>
             <div className="page">
@@ -76,7 +79,7 @@ function SavedView() {
                                 {savedSongs.length > 0 ? (
                                     <>
                                     {savedSongs.map((item) => (
-                                        <SavedSong img={item.image100} title={item.title} artist={item.artist} onRemove={() => ("remove")} key={item.id}></SavedSong>
+                                        <SavedSong img={item.image100} title={item.title} artist={item.artist} onRemove={() => ("remove")} key={savedSongs.indexOf(item)}></SavedSong>
                                     ))}
                                     </>
                                 ) : (<></>)}

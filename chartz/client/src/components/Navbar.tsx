@@ -1,4 +1,3 @@
-import Searchbar from "./Searchbar";
 import "./Components.css";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -27,7 +26,6 @@ function Navbar() {
                 <li className='nav-bar-links'>
                 <Link to="/" className="chartz-link">CHARTZ</Link>
                 </li>
-                <li><Searchbar /></li>
                 {isLoggedIn ? (
                     <>
                         <li className="nav-bar-links">
