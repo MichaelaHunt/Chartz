@@ -10,7 +10,7 @@ interface Top3ItemProps {
 function Top3Item({ img, title, artist, rank }: Top3ItemProps) {
     return (
         <div className="top3item">
-            <div>
+            <div id="bringToDetailsPg">
                 <img src={img} alt={title} className="top3img" />
                 <h6 className="top3title">{title}</h6>
                 <p className="top3artist">{artist}</p>

@@ -17,7 +17,6 @@ export interface iTunesTrendingSong {//home page return
     title: string;
     artist: string;
     album: string;
-    image100: string;
   }
 
   export interface itemType {

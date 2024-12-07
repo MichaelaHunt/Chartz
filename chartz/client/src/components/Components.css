@@ -236,3 +236,30 @@ li {
   justify-content: space-between;
   height: 200px;
 }
+
+@media (max-width: 768px) {
+  .searchBar {
+    width: 100%;
+  }
+
+  .searchBar > input {
+    width: 100%;
+  }
+
+  .loginInput {
+    width: 100%;
+  }
+
+  .bannerContainer {
+    height: 200px;
+  }
+
+  .bannerImg {
+    width: 200px;
+    height: 200px;
+  }
+
+  .bannerText {
+    height: 100px;
+  }
+}
