@@ -1,27 +1,53 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getGeniusSongData } from "../api/genius";
 import Banner, { bannerProps } from "../components/Banner";
 import Navbar from "../components/Navbar";
 import './Pages.css';
+import { GeniusSong } from "../interfaces/GeniusResponse";
+import { searchOneSong } from "../api/itunes";
+import { iTunesSong } from "../interfaces/iTunesResponse";
 
 
 
-let songInfo: bannerProps;
 function LyricsView() {
-    //get the itunes data for the specified song, and get the genius data for the song.
-    //remember that any functions from the api folder will need an await before them.
-    useEffect(() => {console.log("Returned value: " + getGeniusSongData("Shape of you"));}, []);
-    
+    let songInfo: iTunesSong = { title: "", album: "", artist: "" };
+    const [songDetails, setSongDetails] = useState<GeniusSong>({ description: "", url: "", image: "" });
+    const [props, setProps] = useState<bannerProps>({ img: "", songTitle: "", albumName: "", artistName: "" });
+    let songTitle: string;
+
+    async function getSongData(songTitle: string) {
+        //get the genius data
+        let details = await getGeniusSongData(songTitle);
+        //get the itunes data
+        songInfo = await searchOneSong(songTitle);
+        //Set the props for the banner
+        setSongDetails(details);
+
+        setProps({ 
+            img: details.image, 
+            songTitle: songInfo.title, 
+            albumName: songInfo.album, 
+            artistName: songInfo.artist });
+    }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            await getSongData(songTitle);
+        };
+        fetchData();
+    }, []);
+
     return (
         <>
             <div className="page">
                 <Navbar></Navbar>
-                <Banner {...songInfo}></Banner>
+                <Banner {...props}></Banner>
                 <div className="body">
                     {/*lyrics section here*/}
                     <div className="lyricsContainer">
                         <div className="lyricsItem">
-                            <p></p>
+                            <p>{songDetails.description}</p>
+                            <a href={songDetails.url}>Lyrics</a>
                         </div>
                     </div>
                 </div>

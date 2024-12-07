@@ -19,8 +19,8 @@ router.get('/10trending', async (_req: Request, res: Response) => {
 //2: Get one particular song's data
 router.post('/search', async (req: Request, res: Response) => {
     try {
-        const songTitle = req.body;
-        const data = await fetch(`https://itunes.apple.com/search?term=${songTitle}&entity=musicTrack&limit=1&media=music`).then(res => res.json());//this gives the wrong song... whilst copy-pasting in and filling it in gives the right song...
+        const { songTitle } = req.body;
+        const data = await fetch(`https://itunes.apple.com/search?term=${songTitle}&entity=musicTrack&limit=1&media=music`).then(res => res.json());
         res.json(data);
     } catch (err) {
         console.log(err);
