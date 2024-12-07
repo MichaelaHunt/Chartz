@@ -238,6 +238,14 @@ li {
   height: 200px;
 }
 
+#linkButton {
+  background-color: white;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 12px;
+}
+
 @media (max-width: 768px) {
   .searchBar {
     width: 100%;
