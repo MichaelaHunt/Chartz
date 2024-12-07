@@ -15,6 +15,7 @@ function LyricsView() {
     const [props, setProps] = useState<bannerProps>({ img: "", songTitle: "", albumName: "", artistName: "" });
     let songTitle: string;
 
+    //TODO: SongTitle needs to be initialized when the user clicks on the songs in Home.tsx or Saved.tsx
     async function getSongData(songTitle: string) {
         //get the genius data
         let details = await getGeniusSongData(songTitle);
