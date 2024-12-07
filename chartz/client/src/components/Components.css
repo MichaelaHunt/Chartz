@@ -186,6 +186,7 @@ li {
   border-radius: 16px;
   padding: 16px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .savedSongItem > div {

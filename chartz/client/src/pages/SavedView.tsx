@@ -28,12 +28,12 @@ function SavedView() {
         {
             id: 20,
             geniusSongId: 30425,
-            songTitle: "Sailor Song"
+            songTitle: "Sunday in the South"
         },
         {
             id: 5,
             geniusSongId: 2,
-            songTitle: "Shape of You"
+            songTitle: "Strangers Again"
         },
         {
             id: 2,
