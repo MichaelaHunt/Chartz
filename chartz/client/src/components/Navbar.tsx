@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import auth from "../utils/auth";
 
 function Navbar() {
-    const currentPage = useLocation().pathname
     // State to track if the user is logged in
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -29,7 +28,7 @@ function Navbar() {
                 <li>
                     {isLoggedIn ? (
                         <>
-                            <Link className="linkButton" to="/Details">Saved Songs</Link>
+                            <Link className="linkButton" to="/Saved">Saved Songs</Link>
 
                             <button className="linkButton" onClick={() => {
                                 auth.logoutUser();
