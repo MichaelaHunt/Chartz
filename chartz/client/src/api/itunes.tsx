@@ -55,7 +55,7 @@ async function searchOneSong(songTitle: string) {
       album: collectionName,
       image100: artworkUrl100
     };
-    console.log("Song Data: " + JSON.stringify(songData));
+    // console.log("Song Data: " + JSON.stringify(songData));
     return songData;
   } catch (err) {
     console.log('Error from data retrieval:', err);

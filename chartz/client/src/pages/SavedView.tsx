@@ -38,12 +38,12 @@ function SavedView() {
         {
             id: 2,
             geniusSongId: 20333,
-            songTitle: "Apt."
+            songTitle: "Please Don't Tell My Father That I Used His 1996 Honda Accord to Destroy the Town of Willow Grove, Pennsylvania in 2002"
         },
         {
             id: 22,
             geniusSongId: 30425,
-            songTitle: "Sailor Song"
+            songTitle: "I Want to Know What Love Is"
         }
     ];
     //then we need to get the data on those rows
@@ -62,10 +62,6 @@ function SavedView() {
         };
         fetchData();
     }, []);
-
-    useEffect(() => {
-        console.log(JSON.stringify(savedSongs));
-    }, [savedSongs]);
 
     return (
         <>
