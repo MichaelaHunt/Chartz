@@ -24,11 +24,12 @@ function DetailsView() {
         //Set the props for the banner
         setSongDetails(details);
 
-        setProps({ 
-            img: details.image, 
-            songTitle: songInfo.title, 
-            albumName: songInfo.album, 
-            artistName: songInfo.artist });
+        setProps({
+            img: details.image,
+            songTitle: songInfo.title,
+            albumName: songInfo.album,
+            artistName: songInfo.artist
+        });
     }
 
     useEffect(() => {
@@ -52,9 +53,7 @@ function DetailsView() {
                         </div>
                     </div>
                 </div>
-                <div className="saveSong">
-                    <button>Save Song</button>
-                </div>
+                <button className="saveSong">Save Song</button>
             </div>
         </>
     );
