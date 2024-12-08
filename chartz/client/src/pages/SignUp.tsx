@@ -1,12 +1,19 @@
 import Navbar from "../components/Navbar";
 import TextField from "../components/TextField";
 import './Pages.css';
-import { useState, FormEvent, ChangeEvent } from "react";
-import { useNavigate } from "react-router-dom";  
-import Auth from "../utils/auth"; 
+import { useState, FormEvent, ChangeEvent, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Auth from "../utils/auth";
 import { signUp } from "../api/SignUp";
 
 interface SignUpForm {
+    username: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+}
+
+interface Errors {
     username: string;
     email: string;
     password: string;
@@ -23,11 +30,11 @@ function SignUp() {
     });
 
     // State to manage error messages
-    const [errors, setErrors] = useState({
-        username: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
+    const [errors, setErrors] = useState<Errors>({
+        username: "hello",
+        email: "hello",
+        password: "hello",
+        confirmPassword: "hello",
     });
 
     const navigate = useNavigate(); // For navigation
@@ -44,10 +51,10 @@ function SignUp() {
     // Validate inputs
     const validateForm = () => {
         const newErrors = {
-            username: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
+            username: "hello",
+            email: "hello",
+            password: "hello",
+            confirmPassword: "hello",
         };
 
         let isValid = true;
@@ -98,6 +105,23 @@ function SignUp() {
         }
     };
 
+    useEffect(() => {
+        const userEl = document.getElementById("usernameError");
+        const emailEl = document.getElementById("emailError");
+        const passEl = document.getElementById("passwordError");
+        const confirmEl = document.getElementById("confirmPasswordError");
+        
+        if (userEl)
+            errors.username != "hello" ? userEl.style.visibility = 'visible' : userEl.style.visibility = 'hidden';
+        if (emailEl)
+            errors.email != "hello" ? emailEl.style.visibility = 'visible' : emailEl.style.visibility = 'hidden';
+        if (passEl)
+            errors.password != "hello" ? passEl.style.visibility = 'visible' : passEl.style.visibility = 'hidden';
+        if (confirmEl)
+            errors.confirmPassword != "hello" ? confirmEl.style.visibility = 'visible' : confirmEl.style.visibility = 'hidden';
+
+    }, [errors]);
+
     return (
         <div className="page">
             <Navbar />
@@ -113,7 +137,7 @@ function SignUp() {
                             value={formData.username}
                             onChange={handleChange}
                         />
-                        {errors.username && <p className="error">{errors.username}</p>}
+                        <p className="error" id="usernameError">{errors.username}</p>
 
                         {/* Email Input */}
                         <TextField
@@ -122,7 +146,7 @@ function SignUp() {
                             value={formData.email}
                             onChange={handleChange}
                         />
-                        {errors.email && <p className="error">{errors.email}</p>}
+                        <p className="error" id="emailError">{errors.email}</p>
 
                         {/* Password Input */}
                         <TextField
@@ -132,7 +156,7 @@ function SignUp() {
                             value={formData.password}
                             onChange={handleChange}
                         />
-                        {errors.password && <p className="error">{errors.password}</p>}
+                        <p className="error" id="passwordError">{errors.password}</p>
 
                         {/* Confirm Password Input */}
                         <TextField
@@ -142,12 +166,10 @@ function SignUp() {
                             value={formData.confirmPassword}
                             onChange={handleChange}
                         />
-                        {errors.confirmPassword && (
-                            <p className="error">{errors.confirmPassword}</p>
-                        )}
+                        <p className="error" id="confirmPasswordError">{errors.confirmPassword}</p>
 
                         {/* Submit Button */}
-                        <button onClick={handleSubmit}>Create Account</button>
+                        <button className="signupLink" onClick={handleSubmit}>Create Account</button>
                     </div>
                 </div>
             </div>
