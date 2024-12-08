@@ -3,7 +3,7 @@
 
   ## Description
 
-  Chartz is a website that users can view to easily see the current top trending songs and their lyrics.
+  Chartz is a website that users can view to easily see the current top trending songs and their details with a link to their lyrics.
 
   ## Table of Contents
 
@@ -23,12 +23,12 @@
 
   ## User Story
 
-  As a music enthusiast, 
-  I want to be able to view the top trending songs
-  So that I can be in the know!
-  and
-  I want to be able to view the top trending song lyrics
-  So that I can sing/rap along
+  As a music enthusiast, <br>
+  I want to be able to view the top trending songs<br>
+  So that I can be in the know!<br>
+  and<br>
+  I want to be able to view the top trending song details<br>
+  So that I can learn more about my favorite songs!
 
   ## Preview
 
@@ -36,10 +36,10 @@
 
   ## Usage
 
-  To view a song's lyrics, click on the cards containing a song's info! 
-  To save a song to your favorites list, go to the lyrics page and click the "Save this Song" button.
-  To view your saved songs, click the "Saved Songs" button in the navigation bar at the top of the screen. 
-  To remove a song you've saved, click the trash can icon on the right side of the song card. 
+  To view a song's details, click on the cards containing a song's info! <br>
+  To save a song to your favorites list, go to the details page and click the "Save this Song" button.<br>
+  To view your saved songs, click the "Saved Songs" button in the navigation bar at the top of the screen. <br>
+  To remove a song you've saved, click the trash can icon on the right side of the song card. <br>
 
   ## Credits
 
@@ -65,8 +65,8 @@
   ## Features
 
   - **View Top Trending Songs**: Easily view the current most popular songs!
-  - **View Lyrics of Any Song**: Click on a song to view its lyrics
-  - **Save Your Favorite Songs**: Save your favorite songs to quickly navigate back to its lyrics
+  - **View Details of Any Song**: Click on a song to view its details
+  - **Save Your Favorite Songs**: Save your favorite songs to quickly navigate back to its details
   - **Manage Favorite Songs**: Sick of a song? Remove a song from your favorites list!
 
   ## Tests
