@@ -1,4 +1,4 @@
-import { SavedSongModel } from "../models";
+import { SavedSongModel } from "../models/index.js";
 
 export const seedSavedSongs = async () => {
   await SavedSongModel.bulkCreate([

@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import TextField from "../components/TextField";
 import './Pages.css';
 import Auth from '../utils/auth';
-import { useState, type FormEvent, type ChangeEvent } from 'react';
+import { useState, type FormEvent, type ChangeEvent, useEffect } from 'react';
 import type { UserLogin } from '../interfaces/UserLogin';
 import { login } from '../api/AuthAPI';
 
@@ -17,7 +17,7 @@ function Login() {
     });
 
     // State to track errors
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const [errorMessage, setErrorMessage] = useState<string>("hello");
 
     // Function to handle changes in the input fields
     const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -39,6 +39,18 @@ function Login() {
             setErrorMessage('Login failed. Please check your credentials.');
         }
     };
+
+    useEffect(() => {
+        const errElement = document.getElementById("error");
+        if (errorMessage != "hello") {
+            //set the visibility to visible
+            if (errElement)
+                errElement.style.visibility = 'visible';
+        } else {
+            if (errElement)
+                errElement.style.visibility = 'hidden';
+        }
+    }, [errorMessage]);
 
     return (
         <>
@@ -69,10 +81,10 @@ function Login() {
                             />
 
                             {/* Error Message */}
-                            {errorMessage && <p className="error">{errorMessage}</p>}
+                            <p className="error" id="error">{errorMessage}</p>
 
                             {/* Submit Button */}
-                            <button onClick={handleSubmit}>Login</button>
+                            <button className="signupLink" onClick={handleSubmit}>Login</button>
 
                             <div className="row">
                                 <div className='horizontalLine'></div>

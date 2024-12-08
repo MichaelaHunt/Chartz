@@ -2,6 +2,12 @@
 .page {
   background-color: grey;
   min-height: 100vh;
+  background-image: linear-gradient(to bottom, #EA7771, #ECCE3B);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }
 
 .body {
@@ -106,8 +112,7 @@
   visibility: hidden;
 }
 
-.signupLink,
-button {
+.signupLink {
   font-family: 'Sansation';
   width: 100%;
   height: 56px;
@@ -117,7 +122,6 @@ button {
   border-radius: 16px;
   font-size: 24px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -128,21 +132,21 @@ button {
   position: fixed;
   bottom: 16px;
   right: 16px;
-  background-color: #ff5722;
-  color: white;
+  background-color: white;
   border: none;
-  border-radius: 50%;
-  width: 112px;
+  border-radius: 16px;
+  font-size: 20px;
+  width: 148px;
+  font-family: "Sansation";
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .saveSong:hover {
-  background-color: #e64a19;
+  background-color: white;
   transform: scale(1.1);
 }
 
@@ -189,6 +193,27 @@ button {
   width: 800px;
   border-radius: 16px;
   padding: 32px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lyricLink {
+  width: 156px;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+.lyricLink > a {
+  text-decoration: none;
+  font-family: 'Sansation';
+  color: black;
 }
 
 @media (max-width: 768px) {
