@@ -2,6 +2,12 @@
 .page {
   background-color: grey;
   min-height: 100vh;
+  /* background-image: linear-gradient(to bottom, #EA7771, #ECCE3B); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }
 
 .body {
