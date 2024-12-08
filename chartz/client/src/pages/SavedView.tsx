@@ -74,11 +74,15 @@ function SavedView() {
                             <div className="scrollContainer">
                                 {savedSongs.length > 0 ? (
                                     <>
-                                    {savedSongs.map((item) => (
-                                        <SavedSong img={item.image100} title={item.title} artist={item.artist} onRemove={() => ("remove")} key={savedSongs.indexOf(item)}></SavedSong>
-                                    ))}
+                                        {savedSongs.map((item) => (
+                                            <SavedSong img={item.image100} title={item.title} artist={item.artist} onRemove={() => ("remove")} key={savedSongs.indexOf(item)}></SavedSong>
+                                        ))}
                                     </>
-                                ) : (<></>)}
+                                ) : (
+                                    <>
+                                    <p>No songs saved!</p>
+                                    </>
+                                )}
                             </div>
                         </div>
 
