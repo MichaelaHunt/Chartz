@@ -41,7 +41,6 @@ function SavedSong({ img, title, artist, onRemove }: SavedSongProps) {
                 <div>
                     <img src={img} alt={songTitle}></img>
                     <h3>{songTitle}</h3>
-                    {/* <h3>FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF</h3> */}
                     <h3 className="spacer">|</h3>
                     <h3>{artist}</h3>
                 </div>
