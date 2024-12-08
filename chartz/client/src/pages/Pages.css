@@ -131,6 +131,7 @@
   border-radius: 16px;
   font-size: 20px;
   width: 148px;
+  font-family: "Sansation";
   height: 56px;
   display: flex;
   align-items: center;
@@ -186,6 +187,27 @@
   width: 800px;
   border-radius: 16px;
   padding: 32px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lyricLink {
+  width: 156px;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+.lyricLink > a {
+  text-decoration: none;
+  font-family: 'Sansation';
+  color: black;
 }
 
 @media (max-width: 768px) {
@@ -226,11 +248,6 @@
   button {
     height: 48px;
     font-size: 20px;
-  }
-
-  .saveSong {
-    width: 96px;
-    height: 48px;
   }
 
   .savedItem {

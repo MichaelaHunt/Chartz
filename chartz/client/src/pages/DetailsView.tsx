@@ -49,7 +49,9 @@ function DetailsView() {
                     <div className="lyricsContainer">
                         <div className="lyricsItem">
                             <p>{songDetails.description}</p>
-                            <a href={songDetails.url}>Lyrics</a>
+                            <div className="lyricLink">
+                                <a href={songDetails.url}>Click for lyrics!</a>
+                            </div>
                         </div>
                     </div>
                 </div>
