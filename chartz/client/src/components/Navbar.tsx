@@ -1,4 +1,3 @@
-import Searchbar from "./Searchbar";
 import "./Components.css";
 import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -27,11 +26,10 @@ function Navbar() {
                 <li className='nav-bar-links'>
                 <Link to="/" className="chartz-link">CHARTZ</Link>
                 </li>
-                <li><Searchbar /></li>
                 {isLoggedIn ? (
                     <>
-                        <li className="nav-bar-links">
-                            <Link to="/Lyrics">Saved Lyrics</Link>
+                        <li className="nav-bar-links" id="linkButton">
+                            <Link to="/Details">Saved Songs</Link>
                         </li>
                         <li className="nav-bar-links">
                             <button onClick={() => {
@@ -42,10 +40,10 @@ function Navbar() {
                     </>
                 ) : (
                     <li className="nav-bar-links">
-                        <Link
+                        <Link id="linkButton"
                             to="/login"
                             className={currentPage === '/login' ? 'nav-link-active' : 'nav-link'}>
-                            Log in / Sign up
+                            Log in
                         </Link>
                     </li>
                 )}

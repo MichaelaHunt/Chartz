@@ -186,6 +186,7 @@ li {
   border-radius: 16px;
   padding: 16px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .savedSongItem > div {
@@ -235,6 +236,14 @@ li {
   flex-direction: column;
   justify-content: space-between;
   height: 200px;
+}
+
+#linkButton {
+  background-color: white;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 12px;
 }
 
 @media (max-width: 768px) {

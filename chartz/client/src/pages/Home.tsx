@@ -61,11 +61,6 @@ function Home() {
                             )}
                         </div>
                     </div>
-                    {/*RECENT VIEWS SECTION*/}
-                    <div>
-                        <h1 className="sectionTitle">Your Recent Views</h1>
-                        {/*If they're logged in, show their recent views saved in local storage. If they are not, render message to log in. If there are no songs in local storage, render message they have to recently viewed.*/}
-                    </div>
                 </div>
             </div>
         </>

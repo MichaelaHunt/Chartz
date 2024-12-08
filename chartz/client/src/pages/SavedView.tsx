@@ -28,28 +28,27 @@ function SavedView() {
         {
             id: 20,
             geniusSongId: 30425,
-            songTitle: "Sailor Song"
+            songTitle: "Sunday in the South"
         },
         {
             id: 5,
             geniusSongId: 2,
-            songTitle: "Shape of You"
+            songTitle: "Strangers Again"
         },
         {
             id: 2,
             geniusSongId: 20333,
-            songTitle: "Apt."
+            songTitle: "Please Don't Tell My Father That I Used His 1996 Honda Accord to Destroy the Town of Willow Grove, Pennsylvania in 2002"
         },
         {
             id: 22,
             geniusSongId: 30425,
-            songTitle: "Sailor Song"
+            songTitle: "I Want to Know What Love Is"
         }
     ];
     //then we need to get the data on those rows
 
     async function getSongData() {
-        // let tempArray: iTunesSong[] = [];
         let tempItunesArray: iTunesSong[] = await Promise.all(dummyData.map(async (song) => {
             return await searchOneSong(song.songTitle);
         }));
@@ -76,7 +75,7 @@ function SavedView() {
                                 {savedSongs.length > 0 ? (
                                     <>
                                     {savedSongs.map((item) => (
-                                        <SavedSong img={item.image100} title={item.title} artist={item.artist} onRemove={() => ("remove")} key={item.id}></SavedSong>
+                                        <SavedSong img={item.image100} title={item.title} artist={item.artist} onRemove={() => ("remove")} key={savedSongs.indexOf(item)}></SavedSong>
                                     ))}
                                     </>
                                 ) : (<></>)}
