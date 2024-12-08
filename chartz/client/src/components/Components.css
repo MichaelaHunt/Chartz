@@ -212,6 +212,9 @@ li {
   padding: 8px 16px;
   text-decoration: none;
   border-radius: 12px;
+  font-size: 16px;
+  font-family: 'Sansation';
+  margin-left: 16px;
 }
 
 @media (max-width: 768px) {
