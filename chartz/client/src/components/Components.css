@@ -229,7 +229,7 @@ li {
 
 .bannerText {
   position: absolute;
-  left: 50%;                    /* Position relative to the parent's center */
+  left: 50%;                    
   transform: translateX(-50%);
   text-align: center;
   display: flex;
@@ -238,7 +238,7 @@ li {
   height: 200px;
 }
 
-#linkButton {
+.linkButton {
   background-color: white;
   color: black;
   padding: 8px 16px;

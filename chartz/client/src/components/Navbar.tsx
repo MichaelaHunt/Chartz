@@ -24,29 +24,25 @@ function Navbar() {
         <div className="navContainer">
             <ul>
                 <li className='nav-bar-links'>
-                <Link to="/" className="chartz-link">CHARTZ</Link>
+                    <Link to="/" className="chartz-link">CHARTZ</Link>
                 </li>
-                {isLoggedIn ? (
-                    <>
-                        <li className="nav-bar-links" id="linkButton">
-                            <Link to="/Details">Saved Songs</Link>
-                        </li>
-                        <li className="nav-bar-links">
-                            <button onClick={() => {
+                <li>
+                    {isLoggedIn ? (
+                        <>
+                            <Link className="linkButton" to="/Details">Saved Songs</Link>
+
+                            <button className="linkButton" onClick={() => {
                                 auth.logoutUser();
-                            }}>
-                                Logout</button>
-                        </li>
-                    </>
-                ) : (
-                    <li className="nav-bar-links">
-                        <Link id="linkButton"
-                            to="/login"
-                            className={currentPage === '/login' ? 'nav-link-active' : 'nav-link'}>
+                            }}>Logout</button>
+                        </>
+                    ) : (
+                        <Link className="linkButton"
+                            to="/login">
                             Log in
                         </Link>
-                    </li>
-                )}
+                    )}
+                </li>
+
             </ul>
         </div>
     );
