@@ -1,5 +1,13 @@
-import { DataTypes, Sequelize, Model, type Optional } from 'sequelize';
+import {
+    Model,
+    DataTypes,
+    type Optional,
+    type BelongsToManyAddAssociationMixin,
+    type Sequelize,
+} from 'sequelize';
 import bcrypt from 'bcrypt';
+
+import type { SavedSong } from './savedSong.js';
 
 interface UserAttributes {
     id: number;
@@ -20,11 +28,14 @@ implements UserAttributes {
     public readonly createdAt!: Date;
     public readonly updatedAt!: Date;
 
+    declare addSavedSong: BelongsToManyAddAssociationMixin<SavedSong, SavedSong['id']>;
+    declare addSavedSongs: BelongsToManyAddAssociationMixin<SavedSong[], SavedSong['id'][]>;
+
     public async hashPassword(password: string) {
         const saltRounds = 10;
         this.password = await bcrypt.hash(password, saltRounds);
     }
-    }
+}
 
 
 export function UserFactory(sequelize: Sequelize): typeof User {
@@ -58,7 +69,9 @@ export function UserFactory(sequelize: Sequelize): typeof User {
                     await user.hashPassword(user.password);
                 },
                 beforeUpdate: async (user: User) => {
-                    await user.hashPassword(user.password);
+                    if(user.changed('password')){
+                        await user.hashPassword(user.password);
+                    }
                 },
             },
         }

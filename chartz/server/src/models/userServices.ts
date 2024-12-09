@@ -1,4 +1,4 @@
-import { UserModel, SavedSongModel, UserSavedSong } from './index.js';
+import { UserModel, SavedSongModel } from './index.js';
 
 // Get a user by id
 export const getUser = async (userId: string) => {
@@ -29,10 +29,11 @@ export const addSavedSong = async (userId: string, songData: { geniusSongId: num
         defaults: { ...songData },
     });
 
-    // Link the user to the song
-    await UserSavedSong.findOrCreate({
-        where: { UserId: userId, SavedSongId: song.id },
-    });
+    // Find the user
+    const user = await UserModel.findByPk(userId);
+
+    // Add the song to the user
+    await user?.addSavedSong(song);
 
     return song;
 };

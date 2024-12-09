@@ -1,8 +1,18 @@
-import { DataTypes, Sequelize, Model} from 'sequelize';
+import {
+    Model,
+    DataTypes,
+    type BelongsToManyAddAssociationMixin,
+    type Sequelize,
+} from 'sequelize';
+
+import type { User } from './user';
 
 export class SavedSong extends Model {
     public id!: number;
     public apiPath!: string;
+
+    declare addUser: BelongsToManyAddAssociationMixin<User, User['id']>;
+    declare addUsers: BelongsToManyAddAssociationMixin<User[], User['id'][]>;
 }
 
 export function SavedSongFactory(sequelize: Sequelize): typeof SavedSong {
