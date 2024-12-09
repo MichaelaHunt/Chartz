@@ -13,21 +13,14 @@ interface song {
 }
 
 function SavedView() {
-    //SO we need to get the rows of songs attached to our user
     const [savedSongs, setSavedSongs] = useState<iTunesSong[]>([]);
-    let userId: number = 0;
     let savedSongData: song[];
-    //then we need to get the data on those rows
 
     async function getSongData() {
         let tempItunesArray: iTunesSong[] = await Promise.all(savedSongData.map(async (song) => {
             return await searchOneSong(song.songTitle);
         }));
         setSavedSongs(tempItunesArray);
-    }
-
-    function getId() {
-        return Number(localStorage.getItem("Id"));
     }
 
     async function findSongs() {
@@ -41,7 +34,6 @@ function SavedView() {
             await getSongData();
         };
         fetchData();
-        userId = getId();
     }, []);
 
     return (

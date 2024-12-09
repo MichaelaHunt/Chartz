@@ -1,7 +1,7 @@
 import Navbar from "../components/Navbar";
 import TextField from "../components/TextField";
 import './Pages.css';
-import { useState, FormEvent, ChangeEvent, useEffect, useContext } from "react";
+import { useState, FormEvent, ChangeEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Auth from "../utils/auth";
 import { signUp } from "../api/SignUp";
