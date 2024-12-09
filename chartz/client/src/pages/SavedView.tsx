@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { searchOneSong } from "../api/itunes";
 import Navbar from "../components/Navbar";
 import SavedSong from "../components/SavedSong";
 import { iTunesSong } from "../interfaces/iTunesResponse";
 import './Pages.css';
+import { IdContext } from "../components/IdContext";
 
 interface song {
     id: number,
@@ -14,6 +15,9 @@ interface song {
 function SavedView() {
     //SO we need to get the rows of songs attached to our user
     const [savedSongs, setSavedSongs] = useState<iTunesSong[]>([]);
+    // const { userId } = useContext(IdContext);
+    let userId: number = 0;
+    
     const dummyData: song[] = [
         {
             id: 1,
@@ -55,12 +59,18 @@ function SavedView() {
         setSavedSongs(tempItunesArray);
     }
 
+    function getId() {
+        return Number(localStorage.getItem("Id"));
+    }
+
     //and render them. 
     useEffect(() => {
         const fetchData = async () => {
             await getSongData();
         };
         fetchData();
+        userId = getId();
+        console.log("Id from Saved: " + userId);
     }, []);
 
     return (

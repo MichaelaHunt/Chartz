@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import TextField from "../components/TextField";
 import './Pages.css';
 import Auth from '../utils/auth';
-import { useState, type FormEvent, type ChangeEvent, useEffect } from 'react';
+import { useState, type FormEvent, type ChangeEvent, useEffect, useContext, Dispatch, SetStateAction } from 'react';
 import type { UserLogin } from '../interfaces/UserLogin';
 import { login } from '../api/AuthAPI';
 
@@ -33,6 +33,7 @@ function Login() {
         event.preventDefault();
         try {
             const data = await login(userLogin); // Assuming `login` API returns a token
+            localStorage.setItem("Id", data.id);
             Auth.loginUser(data.token); // Save token and navigate to home page
         } catch (error) {
             console.error('Failed to log in:', error);
