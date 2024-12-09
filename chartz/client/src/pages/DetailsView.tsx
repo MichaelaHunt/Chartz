@@ -47,11 +47,9 @@ function DetailsView() {
         };
         fetchData();
         userId = getId();
-        console.log("Id from Details: " + userId);
     }, []);
 
     async function saveSong() {
-        console.log("id before entering api scall: " + id);
         await createNewSong(props.songTitle, id);
     }
 
