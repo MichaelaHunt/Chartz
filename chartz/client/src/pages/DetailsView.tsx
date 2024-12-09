@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getGeniusSongData } from "../api/genius";
 import Banner, { bannerProps } from "../components/Banner";
 import Navbar from "../components/Navbar";
@@ -15,8 +15,7 @@ function DetailsView() {
     const [songDetails, setSongDetails] = useState<GeniusSong>({ description: "", url: "", image: "" });
     const [props, setProps] = useState<bannerProps>({ img: "", songTitle: "", albumName: "", artistName: "" });
     const [id, setId] = useState<number>(0);
-    let userId: number = 0;
-    let songTitle: string;
+    let songTitle: string = "";
 
     //TODO: SongTitle needs to be initialized when the user clicks on the songs in Home.tsx or Saved.tsx
     async function getSongData(songTitle: string) {
@@ -37,16 +36,11 @@ function DetailsView() {
         });
     }
 
-    function getId() {
-        return Number(localStorage.getItem("Id"));
-    }
-
     useEffect(() => {
         const fetchData = async () => {
             await getSongData(songTitle);
         };
         fetchData();
-        userId = getId();
     }, []);
 
     async function saveSong() {

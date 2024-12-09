@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import TextField from "../components/TextField";
 import './Pages.css';
 import Auth from '../utils/auth';
-import { useState, type FormEvent, type ChangeEvent, useEffect, useContext, Dispatch, SetStateAction } from 'react';
+import { useState, type FormEvent, type ChangeEvent, useEffect } from 'react';
 import type { UserLogin } from '../interfaces/UserLogin';
 import { login } from '../api/AuthAPI';
 
