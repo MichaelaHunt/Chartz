@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import SavedSong from "../components/SavedSong";
 import { iTunesSong } from "../interfaces/iTunesResponse";
 import './Pages.css';
-import { IdContext } from "../components/IdContext";
+import { getUsersSongs } from "../api/UserAPI";
 
 interface song {
     id: number,
@@ -63,6 +63,10 @@ function SavedView() {
         return Number(localStorage.getItem("Id"));
     }
 
+    async function findSongs() {
+        await getUsersSongs();
+    }
+
     //and render them. 
     useEffect(() => {
         const fetchData = async () => {
@@ -70,7 +74,7 @@ function SavedView() {
         };
         fetchData();
         userId = getId();
-        console.log("Id from Saved: " + userId);
+        findSongs();
     }, []);
 
     return (
@@ -85,7 +89,7 @@ function SavedView() {
                                 {savedSongs.length > 0 ? (
                                     <>
                                         {savedSongs.map((item) => (
-                                            <SavedSong img={item.image100} title={item.title} artist={item.artist} onRemove={() => ("remove")} key={savedSongs.indexOf(item)}></SavedSong>
+                                            <SavedSong img={item.image100} title={item.title} artist={item.artist} key={savedSongs.indexOf(item)}></SavedSong>
                                         ))}
                                     </>
                                 ) : (
