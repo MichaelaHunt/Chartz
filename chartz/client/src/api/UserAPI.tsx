@@ -39,9 +39,9 @@ async function createNewSong(songTitle: string, songId: number) {
 
 async function getUsersSongs() {
     // let userId = localStorage.getItem("Id");
-    let userId = 1;
-    const response = await fetch(`/api/users/${userId}/songs`);
-    console.log("Response: " + JSON.stringify(response));
+    let userId = 1;//TODO: delete this and uncomment above comment when Save Song button is working
+    const response = await fetch(`/api/users/${userId}/songs`).then(res => res.json());
+    return response;
 }
 
 export { retrieveUser, createNewSong, getUsersSongs };
