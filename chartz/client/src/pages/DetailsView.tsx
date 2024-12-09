@@ -19,11 +19,8 @@ function DetailsView() {
     const songTitle = location.state?.title;
     console.log(location.state?.songTitle);
 
-    //TODO: SongTitle needs to be initialized when the user clicks on the songs in Home.tsx or Saved.tsx
     async function getSongData(songTitle: string) {
         //get the genius data
-        
-        console.log("Songtitle: " + songTitle);
         let { returnData, songId } = await getGeniusSongData(songTitle);
         setId(songId);
         //get the itunes data
