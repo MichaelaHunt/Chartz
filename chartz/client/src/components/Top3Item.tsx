@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Components.css";
+import { Link } from "react-router-dom";
 
 interface Top3ItemProps {
     img: string;
@@ -28,11 +29,11 @@ function Top3Item({ img, title, artist, rank }: Top3ItemProps) {
     }, []);
     return (
         <div className="top3item">
-            <div id="bringToDetailsPg">
+            <Link to='/details' className='top3link' state={{title: songTitle}}>
                 <img src={img} alt={songTitle} className="top3img" />
                 <h6 className="top3title">{songTitle}</h6>
                 <p className="top3artist">{artist}</p>
-            </div>
+            </Link>
             <h2>#{rank}</h2>
         </div>
     );

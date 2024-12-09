@@ -7,6 +7,7 @@ import { GeniusSong } from "../interfaces/GeniusResponse";
 import { searchOneSong } from "../api/itunes";
 import { iTunesSong } from "../interfaces/iTunesResponse";
 import { createNewSong } from "../api/UserAPI";
+import { useLocation } from "react-router-dom";
 
 
 function DetailsView() {
@@ -14,11 +15,15 @@ function DetailsView() {
     const [songDetails, setSongDetails] = useState<GeniusSong>({ description: "", url: "", image: "" });
     const [props, setProps] = useState<bannerProps>({ img: "", songTitle: "", albumName: "", artistName: "" });
     const [id, setId] = useState<number>(0);
-    let songTitle: string = "Shape of You";
+    const location = useLocation();
+    const songTitle = location.state?.title;
+    console.log(location.state?.songTitle);
 
     //TODO: SongTitle needs to be initialized when the user clicks on the songs in Home.tsx or Saved.tsx
     async function getSongData(songTitle: string) {
         //get the genius data
+        
+        console.log("Songtitle: " + songTitle);
         let { returnData, songId } = await getGeniusSongData(songTitle);
         setId(songId);
         //get the itunes data
