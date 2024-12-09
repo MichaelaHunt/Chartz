@@ -37,4 +37,11 @@ async function createNewSong(songTitle: string, songId: number) {
     console.log("Response: " + JSON.stringify(response));
 }
 
-export { retrieveUser, createNewSong };
+async function getUsersSongs() {
+    // let userId = localStorage.getItem("Id");
+    let userId = 1;
+    const response = await fetch(`/api/users/${userId}/songs`);
+    console.log("Response: " + JSON.stringify(response));
+}
+
+export { retrieveUser, createNewSong, getUsersSongs };

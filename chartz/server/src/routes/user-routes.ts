@@ -91,7 +91,7 @@ router.get('/:id/songs', async (req: Request, res: Response) => {
         });
 
         if (user) {
-            return res.json(user.get('SavedSongs'));
+            return res.json(await user.get('SavedSongs'));
             
         } else {
             return res.status(404).json({ message: 'User not found' });

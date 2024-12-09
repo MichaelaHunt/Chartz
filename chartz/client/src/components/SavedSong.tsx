@@ -5,12 +5,16 @@ interface SavedSongProps {
     img?: string;
     title: string;
     artist: string;
-    onRemove: () => void;
 }
 
-function SavedSong({ img, title, artist, onRemove }: SavedSongProps) {
+function SavedSong({ img, title, artist}: SavedSongProps) {
 
     const [songTitle, setSongTitle] = useState<string>(title);
+
+    function removeSong() {
+        
+    }
+
     useEffect(() => {
         //truncate the title to necessary length
         let tempTitle = title;
@@ -44,7 +48,7 @@ function SavedSong({ img, title, artist, onRemove }: SavedSongProps) {
                     <h3 className="spacer">|</h3>
                     <h3>{artist}</h3>
                 </div>
-                <button onClick={onRemove} className="removeButton"><i className="fa-solid fa-trash"></i></button>
+                <button onClick={removeSong} className="removeButton"><i className="fa-solid fa-trash"></i></button>
             </div>
         </>
     );

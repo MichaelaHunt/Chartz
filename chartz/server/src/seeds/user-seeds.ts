@@ -1,4 +1,4 @@
-import { UserModel } from "../models/index.js";
+import { UserModel, UserSavedSong } from "../models/index.js";
 
 export const seedUsers = async () => {
   await UserModel.bulkCreate([
@@ -14,3 +14,20 @@ export const seedUsers = async () => {
     },
     ]);
 };
+
+export const seedUserSongs = async () => {
+  await UserSavedSong.bulkCreate([
+    {
+      userId: 1,
+      savedSongId: 2
+    },
+    {
+      userId: 1,
+      savedSongId: 1
+    },
+    {
+      userId: 2,
+      savedSongId: 2
+    }
+  ]);
+}
