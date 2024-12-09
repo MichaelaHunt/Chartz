@@ -9,22 +9,20 @@ import { iTunesSong } from "../interfaces/iTunesResponse";
 import { createNewSong } from "../api/UserAPI";
 
 
-
 function DetailsView() {
     let songInfo: iTunesSong = { title: "", album: "", artist: "" };
     const [songDetails, setSongDetails] = useState<GeniusSong>({ description: "", url: "", image: "" });
     const [props, setProps] = useState<bannerProps>({ img: "", songTitle: "", albumName: "", artistName: "" });
     const [id, setId] = useState<number>(0);
-    let songTitle: string = "";
+    let songTitle: string = "Shape of You";
 
     //TODO: SongTitle needs to be initialized when the user clicks on the songs in Home.tsx or Saved.tsx
     async function getSongData(songTitle: string) {
         //get the genius data
-        let { returnData, songId } = await getGeniusSongData("Shape of You");
-        console.log("songId: " + songId);
+        let { returnData, songId } = await getGeniusSongData(songTitle);
         setId(songId);
         //get the itunes data
-        songInfo = await searchOneSong("Shape of You");
+        songInfo = await searchOneSong(songTitle);
         //Set the props for the banner
         setSongDetails(returnData);
 
