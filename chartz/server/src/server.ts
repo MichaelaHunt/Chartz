@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 
-const PORT = process.env.PORT || 5432;
+const PORT = process.env.PORT || 3001;
 
 // Serves static files in the entire client's dist folder
 app.use(express.static('../client/dist'));
