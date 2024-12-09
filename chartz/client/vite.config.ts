@@ -7,17 +7,17 @@ export default defineConfig({
     open: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:5432',
+        target: 'http://localhost:3001',
         changeOrigin: true,
         secure: false,
       },
       '/auth': {
-        target: 'http://localhost:5432',
+        target: 'http://localhost:3001',
         changeOrigin: true,
         secure: false,
       },
       '/users': {
-        target: 'http://localhost:5432',
+        target: 'http://localhost:3001',
         changeOrigin: true,
         secure: false,
       },
