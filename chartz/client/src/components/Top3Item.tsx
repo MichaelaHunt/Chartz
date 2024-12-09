@@ -6,6 +6,7 @@ interface Top3ItemProps {
     title: string;
     artist: string;
     rank: number;
+    onClick: () => void;
 }
 
 function Top3Item({ img, title, artist, rank }: Top3ItemProps) {

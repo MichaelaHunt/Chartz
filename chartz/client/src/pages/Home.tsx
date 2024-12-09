@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Top10Item from "../components/Top10Item";
 import Top3Item from "../components/Top3Item";
@@ -10,6 +11,7 @@ import "../components/Components.css";
 function Home() {
     //get the data for the 10trending, none else. 
     const [songs, setSongs] = useState<iTunesTrendingSong[]>([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchSongs = async () => {
@@ -18,6 +20,10 @@ function Home() {
         };
         fetchSongs();
     }, []);
+
+    const handleItemClick = (song: any) => {
+        navigate(`/details/${song.title}`, { state: { song } });
+      };
 
     return (
         <>
@@ -32,9 +38,9 @@ function Home() {
                                 <div>Songs loading</div>
                             ) : (
                             <>
-                                <Top3Item img={songs[0].image170} title={songs[0].title} artist={songs[0].artist} rank={1} />
-                                <Top3Item img={songs[1].image170} title={songs[1].title} artist={songs[1].artist} rank={2} />
-                                <Top3Item img={songs[2].image170} title={songs[2].title} artist={songs[2].artist} rank={3} />
+                                <Top3Item img={songs[0].image170} title={songs[0].title} artist={songs[0].artist} rank={1} onClick={() => handleItemClick(songs[0])}/>
+                                <Top3Item img={songs[1].image170} title={songs[1].title} artist={songs[1].artist} rank={2} onClick={() => handleItemClick(songs[1])}/>
+                                <Top3Item img={songs[2].image170} title={songs[2].title} artist={songs[2].artist} rank={3} onClick={() => handleItemClick(songs[2])}/>
                             </>
                             )}     
                         </div>
