@@ -39,13 +39,13 @@ export const addSavedSong = async (userId: string, songData: { geniusSongId: num
 };
 
 // Remove a saved song from a user
-export const removeSavedSong = async (userId: string, songId: string) => {
-    const rowsDeleted = await UserSavedSong.destroy({
-        where: { UserId: userId, SavedSongId: songId },
-    });
+// export const removeSavedSong = async (userId: string, songId: string) => {
+//     const rowsDeleted = await UserSavedSong.destroy({
+//         where: { UserId: userId, SavedSongId: songId },
+//     });
 
-    //conditional to check if the songs were deleted
-    if (rowsDeleted === 0) {
-        throw new Error('We did not find a song with that name!');
-    }
-};
+//     //conditional to check if the songs were deleted
+//     if (rowsDeleted === 0) {
+//         throw new Error('We did not find a song with that name!');
+//     }
+// };
