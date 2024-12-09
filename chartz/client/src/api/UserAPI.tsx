@@ -33,13 +33,12 @@ async function createNewSong(songTitle: string, songId: number) {
             geniusSongId: songId,  
             songTitle: songTitle
         })
-    });
+    }).then(res => res.json());
     console.log("Response: " + JSON.stringify(response));
 }
 
 async function getUsersSongs() {
-    // let userId = localStorage.getItem("Id");
-    let userId = 1;//TODO: delete this and uncomment above comment when Save Song button is working
+    let userId = localStorage.getItem("Id");
     const response = await fetch(`/api/users/${userId}/songs`).then(res => res.json());
     return response;
 }

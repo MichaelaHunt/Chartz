@@ -32,7 +32,7 @@
 
   ## Preview
 
-
+  ![alt text](<chartz/client/src/assets/images/Screenshot 2024-12-09 at 5.42.21 PM.png>)
 
   ## Usage
 

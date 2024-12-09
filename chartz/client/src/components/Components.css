@@ -72,6 +72,7 @@ li {
 
 .top10item > h1 {
   margin-right: 16px;
+  width: 48px;
   text-align: right;
   font-family: 'Sansation';
 }
@@ -205,6 +206,10 @@ li {
   flex-direction: column;
   justify-content: space-between;
   height: 200px;
+}
+
+.navContainer > ul > li {
+  /* height: 100%; */
 }
 
 .linkButton {
