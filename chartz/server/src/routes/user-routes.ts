@@ -1,6 +1,6 @@
 import express from 'express';
 import type { Request, Response } from 'express';
-import { UserModel as User, SavedSongModel as SavedSong, UserSavedSong } from '../models/index.js';
+import { UserModel as User, SavedSongModel as SavedSong } from '../models/index.js';
 
 const router = express.Router();
 
@@ -108,25 +108,20 @@ router.post('/:id/songs', async (req: Request, res: Response) => {
     const { geniusSongId, songTitle } = req.body;
 
     try {
-        const user = await User.findByPk(id);
-        if (!user) {
-            return res.status(404).json({ message: 'User not found' });
-        }
-        
         // Find or create the song
         const [savedSong] = await SavedSong.findOrCreate({
             where: { geniusSongId },
             defaults: { songTitle },
         });
 
-        // Link the user and song
-        //TODO: PROBLEM IS HERE!!
-        //Once you \c to the db, use this to check for rows: SELECT * FROM public."userSavedSongs";
-        const userSavedSong = await UserSavedSong.findOrCreate({
-            where: { UserId: id, SavedSongId: savedSong.id },
-        });
+        const user = await User.findByPk(id);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
 
-        console.log("userSavedsong: " + JSON.stringify(userSavedSong));
+        await user?.addSavedSong(savedSong);
+
+        // console.log("userSavedsong: " + JSON.stringify(userSavedSong));
 
         return res.status(201).json(savedSong);
     } catch (error: any) {
@@ -135,22 +130,22 @@ router.post('/:id/songs', async (req: Request, res: Response) => {
 });
 
 // DELETE a song from a user by ID
-router.delete('/:id/songs/:songId', async (req: Request, res: Response) => {
-    const { id, songId } = req.params;
+// router.delete('/:id/songs/:songId', async (req: Request, res: Response) => {
+//     const { id, songId } = req.params;
 
-    try {
-        const rowsDeleted = await UserSavedSong.destroy({
-            where: { UserId: id, SavedSongId: songId },
-        });
+//     try {
+//         const rowsDeleted = await UserSavedSong.destroy({
+//             where: { UserId: id, SavedSongId: songId },
+//         });
 
-        if (rowsDeleted === 0) {
-            return res.status(404).json({ message: 'Song association not found' });
-        }
+//         if (rowsDeleted === 0) {
+//             return res.status(404).json({ message: 'Song association not found' });
+//         }
 
-        return res.json({ message: 'Song removed' });
-    } catch (error: any) {
-        return res.status(500).json({ message: error.message });
-    }
-});
+//         return res.json({ message: 'Song removed' });
+//     } catch (error: any) {
+//         return res.status(500).json({ message: error.message });
+//     }
+// });
 
 export default router;
