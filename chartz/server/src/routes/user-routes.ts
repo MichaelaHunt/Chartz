@@ -111,7 +111,7 @@ router.post('/:id/songs', async (req: Request, res: Response) => {
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
-
+        
         // Find or create the song
         const [savedSong] = await SavedSong.findOrCreate({
             where: { geniusSongId },
@@ -119,9 +119,13 @@ router.post('/:id/songs', async (req: Request, res: Response) => {
         });
 
         // Link the user and song
-        await UserSavedSong.findOrCreate({
+        //TODO: PROBLEM IS HERE!!
+        //Once you \c to the db, use this to check for rows: SELECT * FROM public."userSavedSongs";
+        const userSavedSong = await UserSavedSong.findOrCreate({
             where: { UserId: id, SavedSongId: savedSong.id },
         });
+
+        console.log("userSavedsong: " + JSON.stringify(userSavedSong));
 
         return res.status(201).json(savedSong);
     } catch (error: any) {

@@ -21,4 +21,20 @@ const retrieveUser = async () => {
     }
 };
 
-export { retrieveUser };
+async function createNewSong(songTitle: string, songId: number) {
+    let userId = localStorage.getItem("Id");
+    console.log("Title and Id: " + songTitle + " and " + songId);
+    const response = await fetch(`/api/users/${userId}/songs`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',  
+        },
+        body: JSON.stringify({
+            geniusSongId: songId,  
+            songTitle: songTitle
+        })
+    });
+    console.log("Response: " + JSON.stringify(response));
+}
+
+export { retrieveUser, createNewSong };

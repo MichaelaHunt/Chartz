@@ -43,6 +43,7 @@ class AuthorizeUser {
     //create a function to log out the user.
     logoutUser() {
         localStorage.removeItem('id_token');
+        localStorage.removeItem("Id");
         window.location.assign('/');
     }
 }

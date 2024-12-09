@@ -15,7 +15,6 @@ function Top10Item({ img, title, artist, rank }: Top10ItemProps) {
         let tempTitle = title;
         let authorMark = " - " + artist;
         if (title.includes(authorMark)) {
-            console.log(title.length - authorMark.length);
             tempTitle = title.slice(0, (title.length - authorMark.length));
         }
         //Then let's remove any (feat. ****)

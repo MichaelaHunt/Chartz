@@ -1,6 +1,11 @@
 import { GeniusSong } from "../interfaces/GeniusResponse";
 
-async function getGeniusSongData(songTitle: string) {
+interface ReturnData {
+  returnData: GeniusSong;
+  songId: number;
+}
+
+async function getGeniusSongData(songTitle: string): Promise<ReturnData> {
   try {
     //first search for the song, then get the song details with the other fetch
     const response = await fetch(`/api/genius/search`, {
@@ -14,10 +19,10 @@ async function getGeniusSongData(songTitle: string) {
     });
     const data = await response.json();
     const { response: { hits } } = data;
-    const id = hits[0].result.id;
+    const songId: number = hits[0].result.id;
 
     //now get the song details
-    const res = await fetch(`/api/genius/song/${id}`, {
+    const res = await fetch(`/api/genius/song/${songId}`, {
       method: 'GET', 
       headers: {
         'Content-Type': 'application/json', 
@@ -46,10 +51,11 @@ async function getGeniusSongData(songTitle: string) {
     const image = details.response.song.header_image_thumbnail_url;
     
     const returnData: GeniusSong = { description, url, image };
-    return returnData;
+    return {returnData, songId};
   } catch (err) { 
     console.log('Error from data retrieval:', err);
-    return {description: "", url: "", image: ""};
+    const empty = {description: "", url: "", image: ""};
+    return {returnData: empty, songId: 0};
   }
 }
 
