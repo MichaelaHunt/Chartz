@@ -21,9 +21,19 @@ const retrieveUser = async () => {
     }
 };
 
-async function createNewSong() {
+async function createNewSong(songTitle: string, songId: number) {
     let userId = localStorage.getItem("Id");
-    const response = await fetch(`/api/${userId}/songs`);
+    console.log("Title and Id: " + songTitle + " and " + songId);
+    const response = await fetch(`/api/users/${userId}/songs`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',  
+        },
+        body: JSON.stringify({
+            geniusSongId: songId,  
+            songTitle: songTitle
+        })
+    });
     console.log("Response: " + JSON.stringify(response));
 }
 
