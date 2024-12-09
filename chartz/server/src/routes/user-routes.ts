@@ -106,7 +106,7 @@ router.get('/:id/songs', async (req: Request, res: Response) => {
 router.post('/:id/songs', async (req: Request, res: Response) => {
     const { id } = req.params;
     const { geniusSongId, songTitle } = req.body;
-
+    
     try {
         // Find or create the song
         const [savedSong] = await SavedSong.findOrCreate({

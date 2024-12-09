@@ -208,6 +208,10 @@ li {
   height: 200px;
 }
 
+.navContainer > ul > li {
+  /* height: 100%; */
+}
+
 .linkButton {
   background-color: white;
   color: black;

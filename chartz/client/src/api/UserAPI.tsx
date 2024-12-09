@@ -33,7 +33,7 @@ async function createNewSong(songTitle: string, songId: number) {
             geniusSongId: songId,  
             songTitle: songTitle
         })
-    });
+    }).then(res => res.json());
     console.log("Response: " + JSON.stringify(response));
 }
 
