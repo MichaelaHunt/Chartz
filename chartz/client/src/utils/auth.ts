@@ -22,7 +22,7 @@ class AuthorizeUser {
             const decodedToken = jwtDecode<JwtPayload>(token);
 
             //check to see if the token is expired, if so return true.
-            if (decodedToken?.exp && decodedToken?.exp < Date.now() / 1) {
+            if (decodedToken?.exp && decodedToken?.exp < Date.now() / 1000) {
                 return true;
             }
         } catch (error) {
