@@ -6,9 +6,10 @@ interface Top10ItemProps {
     title: string;
     artist: string;
     rank: string | number;
+    onClick: () => void; // onClick prop
 }
 
-function Top10Item({ img, title, artist, rank }: Top10ItemProps) {
+function Top10Item({ img, title, artist, rank, onClick }: Top10ItemProps) {
     const [songTitle, setSongTitle] = useState<string>(title);
     useEffect(() => {
         //truncate the title to necessary length
@@ -29,7 +30,7 @@ function Top10Item({ img, title, artist, rank }: Top10ItemProps) {
 
     return (
         <>
-            <div className="top10item">
+            <div className="top10item" onClick={onClick} style={{ cursor: "pointer" }}>
                 <h1>{rank}</h1>
                 <div id="bringToDetailsPg">
                     <img src={img} alt={songTitle} className="top10img"></img>
