@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Components.css";
 import { useState, useEffect } from "react";
 
@@ -41,7 +42,7 @@ function SavedSong({ img, title, artist}: SavedSongProps) {
 
     return (
         <>
-            <div className="savedSongItem" id="bringToDetailsPg">
+            <Link className="savedSongItem" to='/details' state={{title: songTitle}}>
                 <div>
                     <img src={img} alt={songTitle}></img>
                     <h3>{songTitle}</h3>
@@ -49,7 +50,7 @@ function SavedSong({ img, title, artist}: SavedSongProps) {
                     <h3>{artist}</h3>
                 </div>
                 <button onClick={removeSong} className="removeButton"><i className="fa-solid fa-trash"></i></button>
-            </div>
+            </Link>
         </>
     );
 }

@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import "./Components.css";
+import { Link } from "react-router-dom";
 
 interface Top10ItemProps {
     img: string;
     title: string;
     artist: string;
     rank: string | number;
-    onClick: () => void; // onClick prop
 }
 
-function Top10Item({ img, title, artist, rank, onClick }: Top10ItemProps) {
+function Top10Item({ img, title, artist, rank }: Top10ItemProps) {
     const [songTitle, setSongTitle] = useState<string>(title);
     useEffect(() => {
         //truncate the title to necessary length
@@ -30,15 +30,15 @@ function Top10Item({ img, title, artist, rank, onClick }: Top10ItemProps) {
 
     return (
         <>
-            <div className="top10item" onClick={onClick} style={{ cursor: "pointer" }}>
+            <div className="top10item">
                 <h1>{rank}</h1>
-                <div id="bringToDetailsPg">
+                <Link to='/details' className="top10link" state={{title: songTitle}}>
                     <img src={img} alt={songTitle} className="top10img"></img>
                     <div>
                         <h6 className="top10text">{songTitle}</h6>
                         <h6 className="top10text">{artist}</h6>
                     </div>
-                </div>
+                </Link>
             </div>
         </>
     );
