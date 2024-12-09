@@ -6,29 +6,30 @@ interface Top3ItemProps {
     title: string;
     artist: string;
     rank: number;
-    onClick: () => void;
+    onClick: () => void; // onClick prop
 }
 
-function Top3Item({ img, title, artist, rank }: Top3ItemProps) {
+function Top3Item({ img, title, artist, rank, onClick }: Top3ItemProps) {
     const [songTitle, setSongTitle] = useState<string>(title);
+
     useEffect(() => {
-        //truncate the title to necessary length
+        // Truncate the title to necessary length
         let tempTitle = title;
         let authorMark = " - " + artist;
         if (title.includes(authorMark)) {
-            tempTitle = title.slice(0, (title.length - authorMark.length));
+            tempTitle = title.slice(0, title.length - authorMark.length);
         }
-        //Then let's remove any (feat. ****)
+        // Remove any (feat. ****)
         tempTitle = tempTitle.replace(/\s?\(.*?\)\s?/g, '');
         if (tempTitle.length > 52) {
-            tempTitle = title.slice(0, 50) + "...";
+            tempTitle = tempTitle.slice(0, 50) + "...";
         }
 
         setSongTitle(tempTitle);
-        
-    }, []);
+    }, [title, artist]);
+
     return (
-        <div className="top3item">
+        <div className="top3item" onClick={onClick} style={{ cursor: "pointer" }}>
             <div id="bringToDetailsPg">
                 <img src={img} alt={songTitle} className="top3img" />
                 <h6 className="top3title">{songTitle}</h6>
