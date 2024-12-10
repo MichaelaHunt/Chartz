@@ -26,7 +26,7 @@ function Navbar() {
                     <Link to="/" className="chartz-link">CHARTZ</Link>
                 </li>
                 <li>
-                    {isLoggedIn ? (
+                    {auth.loggedIn() ? (
                         <>
                             <Link className="linkButton" to="/Saved">Saved Songs</Link>
 
